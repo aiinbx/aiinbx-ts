@@ -19,4 +19,39 @@ describe('resource emails', () => {
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
   });
+
+  // skipped: tests are disabled for the time being
+  test.skip('send: only required params', async () => {
+    const responsePromise = client.emails.send({
+      fromAddress: 'dev@stainless.com',
+      html: 'html',
+      subject: 'subject',
+      to: 'dev@stainless.com',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('send: required and optional params', async () => {
+    const response = await client.emails.send({
+      fromAddress: 'dev@stainless.com',
+      html: 'html',
+      subject: 'subject',
+      to: 'dev@stainless.com',
+      bcc: ['dev@stainless.com'],
+      cc: ['dev@stainless.com'],
+      fromName: 'fromName',
+      inReplyToId: 'inReplyToId',
+      references: ['string'],
+      replyTo: ['dev@stainless.com'],
+      text: 'text',
+      threadId: 'threadId',
+    });
+  });
 });

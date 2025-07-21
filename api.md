@@ -15,7 +15,9 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/emails.ts">EmailRetrieveResponse</a></code>
+- <code><a href="./src/resources/emails.ts">EmailSendResponse</a></code>
 
 Methods:
 
 - <code title="get /emails/{emailId}">client.emails.<a href="./src/resources/emails.ts">retrieve</a>(emailID) -> EmailRetrieveResponse</code>
+- <code title="post /emails/send">client.emails.<a href="./src/resources/emails.ts">send</a>({ ...params }) -> EmailSendResponse</code>
