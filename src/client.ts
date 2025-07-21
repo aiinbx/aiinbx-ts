@@ -16,7 +16,7 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { EmailRetrieveResponse, Emails } from './resources/emails';
+import { EmailRetrieveResponse, EmailSendParams, EmailSendResponse, Emails } from './resources/emails';
 import {
   ThreadRetrieveResponse,
   ThreadSearchParams,
@@ -735,5 +735,10 @@ export declare namespace AIInbx {
     type ThreadSearchParams as ThreadSearchParams,
   };
 
-  export { Emails as Emails, type EmailRetrieveResponse as EmailRetrieveResponse };
+  export {
+    Emails as Emails,
+    type EmailRetrieveResponse as EmailRetrieveResponse,
+    type EmailSendResponse as EmailSendResponse,
+    type EmailSendParams as EmailSendParams,
+  };
 }

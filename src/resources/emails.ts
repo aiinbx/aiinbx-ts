@@ -12,6 +12,15 @@ export class Emails extends APIResource {
   retrieve(emailID: string, options?: RequestOptions): APIPromise<EmailRetrieveResponse> {
     return this._client.get(path`/emails/${emailID}`, options);
   }
+
+  /**
+   * Send an email from a verified domain belonging to the organization. Useful for
+   * transactional or conversational messages. Returns metadata including identifiers
+   * for further queries.
+   */
+  send(body: EmailSendParams, options?: RequestOptions): APIPromise<EmailSendResponse> {
+    return this._client.post('/emails/send', { body, ...options });
+  }
 }
 
 export interface EmailRetrieveResponse {
@@ -95,6 +104,44 @@ export namespace EmailRetrieveResponse {
   }
 }
 
+export interface EmailSendResponse {
+  emailId: string;
+
+  messageId: string;
+
+  threadId: string;
+}
+
+export interface EmailSendParams {
+  fromAddress: string;
+
+  html: string;
+
+  subject: string;
+
+  to: string | Array<string>;
+
+  bcc?: Array<string>;
+
+  cc?: Array<string>;
+
+  fromName?: string;
+
+  inReplyToId?: string;
+
+  references?: Array<string>;
+
+  replyTo?: Array<string>;
+
+  text?: string;
+
+  threadId?: string;
+}
+
 export declare namespace Emails {
-  export { type EmailRetrieveResponse as EmailRetrieveResponse };
+  export {
+    type EmailRetrieveResponse as EmailRetrieveResponse,
+    type EmailSendResponse as EmailSendResponse,
+    type EmailSendParams as EmailSendParams,
+  };
 }
