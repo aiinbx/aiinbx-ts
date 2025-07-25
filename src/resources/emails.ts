@@ -113,7 +113,7 @@ export interface EmailSendResponse {
 }
 
 export interface EmailSendParams {
-  fromAddress: string;
+  from: string;
 
   html: string;
 
@@ -121,17 +121,17 @@ export interface EmailSendParams {
 
   to: string | Array<string>;
 
-  bcc?: Array<string>;
+  bcc?: string | Array<string>;
 
-  cc?: Array<string>;
+  cc?: string | Array<string>;
 
-  fromName?: string;
+  from_name?: string;
 
-  inReplyToId?: string;
+  in_reply_to?: string;
 
   references?: Array<string>;
 
-  replyTo?: Array<string>;
+  reply_to?: string | Array<string>;
 
   text?: string;
 
