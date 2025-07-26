@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import type { Aiinbx } from '../client';
+import type { AIInbx } from '../client';
 
 export abstract class APIResource {
-  protected _client: Aiinbx;
+  protected _client: AIInbx;
 
-  constructor(client: Aiinbx) {
+  constructor(client: AIInbx) {
     this._client = client;
   }
 }
