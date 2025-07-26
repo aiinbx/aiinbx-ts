@@ -1,8 +1,8 @@
 {
   "name": "aiinbx",
   "version": "1.0.0",
-  "description": "The official TypeScript library for the Aiinbx API",
-  "author": "Aiinbx <>",
+  "description": "The official TypeScript library for the AI Inbx API",
+  "author": "AI Inbx <>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
