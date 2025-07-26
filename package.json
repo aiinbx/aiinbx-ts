@@ -1,12 +1,12 @@
 {
-  "name": "ai-inbx",
-  "version": "0.0.1-alpha.0",
-  "description": "The official TypeScript library for the AI Inbx API",
-  "author": "AI Inbx <>",
+  "name": "aiinbx",
+  "version": "1.0.0",
+  "description": "The official TypeScript library for the Aiinbx API",
+  "author": "Aiinbx <>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:stainless-sdks/ai-inbx-typescript",
+  "repository": "github:aiinbx/aiinbx-ts",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
@@ -47,8 +47,8 @@
     "typescript-eslint": "8.31.1"
   },
   "imports": {
-    "ai-inbx": ".",
-    "ai-inbx/*": "./src/*"
+    "aiinbx": ".",
+    "aiinbx/*": "./src/*"
   },
   "exports": {
     ".": {

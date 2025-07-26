@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'ai-inbx/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from 'aiinbx/internal/utils/path';
 import { inspect } from 'node:util';
 import { runInNewContext } from 'node:vm';
 

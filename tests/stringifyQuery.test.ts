@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { AIInbx } from 'ai-inbx';
+import { Aiinbx } from 'aiinbx';
 
-const { stringifyQuery } = AIInbx.prototype as any;
+const { stringifyQuery } = Aiinbx.prototype as any;
 
 describe(stringifyQuery, () => {
   for (const [input, expected] of [
