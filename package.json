@@ -1,6 +1,6 @@
 {
   "name": "aiinbx",
-  "version": "0.0.1-alpha.0",
+  "version": "1.0.0",
   "description": "The official TypeScript library for the Aiinbx API",
   "author": "Aiinbx <>",
   "types": "dist/index.d.ts",
