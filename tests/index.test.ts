@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'ai-inbx/core/api-promise';
+import { APIPromise } from 'aiinbx/core/api-promise';
 
 import util from 'node:util';
-import AIInbx from 'ai-inbx';
-import { APIUserAbortError } from 'ai-inbx';
+import AIInbx from 'aiinbx';
+import { APIUserAbortError } from 'aiinbx';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

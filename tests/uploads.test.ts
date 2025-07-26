@@ -1,6 +1,6 @@
 import fs from 'fs';
-import type { ResponseLike } from 'ai-inbx/internal/to-file';
-import { toFile } from 'ai-inbx/core/uploads';
+import type { ResponseLike } from 'aiinbx/internal/to-file';
+import { toFile } from 'aiinbx/core/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('ai-inbx/core/uploads');
+    const uploads = await import('aiinbx/core/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(
