@@ -16,7 +16,14 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { EmailRetrieveResponse, EmailSendParams, EmailSendResponse, Emails } from './resources/emails';
+import {
+  EmailReplyParams,
+  EmailReplyResponse,
+  EmailRetrieveResponse,
+  EmailSendParams,
+  EmailSendResponse,
+  Emails,
+} from './resources/emails';
 import {
   ThreadRetrieveResponse,
   ThreadSearchParams,
@@ -133,7 +140,7 @@ export class AIInbx {
    * API Client for interfacing with the AI Inbx API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['AI_INBX_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['AI_INBX_BASE_URL'] ?? https://aiinbx.vercel.app/api/v1] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['AI_INBX_BASE_URL'] ?? https://aiinbx.com/api/v1] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -155,7 +162,7 @@ export class AIInbx {
     const options: ClientOptions = {
       apiKey,
       ...opts,
-      baseURL: baseURL || `https://aiinbx.vercel.app/api/v1`,
+      baseURL: baseURL || `https://aiinbx.com/api/v1`,
     };
 
     this.baseURL = options.baseURL!;
@@ -201,7 +208,7 @@ export class AIInbx {
    * Check whether the base URL is set to its default.
    */
   #baseURLOverridden(): boolean {
-    return this.baseURL !== 'https://aiinbx.vercel.app/api/v1';
+    return this.baseURL !== 'https://aiinbx.com/api/v1';
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
@@ -738,7 +745,9 @@ export declare namespace AIInbx {
   export {
     Emails as Emails,
     type EmailRetrieveResponse as EmailRetrieveResponse,
+    type EmailReplyResponse as EmailReplyResponse,
     type EmailSendResponse as EmailSendResponse,
+    type EmailReplyParams as EmailReplyParams,
     type EmailSendParams as EmailSendParams,
   };
 }

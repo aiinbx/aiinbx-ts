@@ -14,6 +14,15 @@ export class Emails extends APIResource {
   }
 
   /**
+   * Reply to an existing email. Automatically handles reply headers (In-Reply-To,
+   * References) and thread association. The reply will be sent from a verified
+   * domain belonging to the organization.
+   */
+  reply(emailID: string, body: EmailReplyParams, options?: RequestOptions): APIPromise<EmailReplyResponse> {
+    return this._client.post(path`/emails/${emailID}/reply`, { body, ...options });
+  }
+
+  /**
    * Send an email from a verified domain belonging to the organization. Useful for
    * transactional or conversational messages. Returns metadata including identifiers
    * for further queries.
@@ -104,12 +113,40 @@ export namespace EmailRetrieveResponse {
   }
 }
 
+export interface EmailReplyResponse {
+  emailId: string;
+
+  messageId: string;
+
+  threadId: string;
+}
+
 export interface EmailSendResponse {
   emailId: string;
 
   messageId: string;
 
   threadId: string;
+}
+
+export interface EmailReplyParams {
+  from: string;
+
+  html: string;
+
+  bcc?: string | Array<string>;
+
+  cc?: string | Array<string>;
+
+  from_name?: string;
+
+  reply_all?: boolean;
+
+  subject?: string;
+
+  text?: string;
+
+  to?: string | Array<string>;
 }
 
 export interface EmailSendParams {
@@ -141,7 +178,9 @@ export interface EmailSendParams {
 export declare namespace Emails {
   export {
     type EmailRetrieveResponse as EmailRetrieveResponse,
+    type EmailReplyResponse as EmailReplyResponse,
     type EmailSendResponse as EmailSendResponse,
+    type EmailReplyParams as EmailReplyParams,
     type EmailSendParams as EmailSendParams,
   };
 }
