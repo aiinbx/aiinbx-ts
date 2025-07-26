@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'ai-inbx/internal/uploads';
-import { toFile } from 'ai-inbx/core/uploads';
+import { multipartFormRequestOptions, createForm } from 'aiinbx/internal/uploads';
+import { toFile } from 'aiinbx/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

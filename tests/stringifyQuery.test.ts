@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { AIInbx } from 'ai-inbx';
+import { AIInbx } from 'aiinbx';
 
 const { stringifyQuery } = AIInbx.prototype as any;
 

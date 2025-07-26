@@ -9,8 +9,8 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "ai-inbx/*": ["src/*"],
-      "ai-inbx": ["src/index.ts"]
+      "aiinbx/*": ["src/*"],
+      "aiinbx": ["src/index.ts"]
     },
     "noEmit": true,
 
