@@ -1,12 +1,12 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Aiinbx as default } from './client';
+export { AIInbx as default } from './client';
 
 export { type Uploadable, toFile } from './core/uploads';
 export { APIPromise } from './core/api-promise';
-export { Aiinbx, type ClientOptions } from './client';
+export { AIInbx, type ClientOptions } from './client';
 export {
-  AiinbxError,
+  AIInbxError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
