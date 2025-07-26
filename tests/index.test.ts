@@ -302,13 +302,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['AI_INBX_BASE_URL'] = ''; // empty
       const client = new AIInbx({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://aiinbx.vercel.app/api/v1');
+      expect(client.baseURL).toEqual('https://aiinbx.com/api/v1');
     });
 
     test('blank env variable', () => {
       process.env['AI_INBX_BASE_URL'] = '  '; // blank
       const client = new AIInbx({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://aiinbx.vercel.app/api/v1');
+      expect(client.baseURL).toEqual('https://aiinbx.com/api/v1');
     });
 
     test('in request options', () => {

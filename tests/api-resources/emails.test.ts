@@ -21,6 +21,33 @@ describe('resource emails', () => {
   });
 
   // skipped: tests are disabled for the time being
+  test.skip('reply: only required params', async () => {
+    const responsePromise = client.emails.reply('emailId', { from: 'dev@stainless.com', html: 'html' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // skipped: tests are disabled for the time being
+  test.skip('reply: required and optional params', async () => {
+    const response = await client.emails.reply('emailId', {
+      from: 'dev@stainless.com',
+      html: 'html',
+      bcc: 'dev@stainless.com',
+      cc: 'dev@stainless.com',
+      from_name: 'from_name',
+      reply_all: true,
+      subject: 'subject',
+      text: 'text',
+      to: 'dev@stainless.com',
+    });
+  });
+
+  // skipped: tests are disabled for the time being
   test.skip('send: only required params', async () => {
     const responsePromise = client.emails.send({
       from: 'dev@stainless.com',
