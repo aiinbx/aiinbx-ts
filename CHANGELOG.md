@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.0 (2025-07-30)
+
+Full Changelog: [v1.4.0...v1.5.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.4.0...v1.5.0)
+
+### Features
+
+* **helpers:** better export ([6856a8c](https://github.com/aiinbx/aiinbx-ts/commit/6856a8c986ff63e7833e8105ef7d2d2efbdd26ac))
+
 ## 1.4.0 (2025-07-30)
 
 Full Changelog: [v1.3.0...v1.4.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.3.0...v1.4.0)
