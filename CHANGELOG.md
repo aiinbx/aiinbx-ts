@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.0 (2025-07-30)
+
+Full Changelog: [v1.2.0...v1.3.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.2.0...v1.3.0)
+
+### Features
+
+* **helpers:** add createNextRouteHandler ([4dc4754](https://github.com/aiinbx/aiinbx-ts/commit/4dc475454cbfe8546aa5347194e439b85b093a78))
+
 ## 1.2.0 (2025-07-30)
 
 Full Changelog: [v1.1.0...v1.2.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.1.0...v1.2.0)

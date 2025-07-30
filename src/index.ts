@@ -20,4 +20,5 @@ export {
   UnprocessableEntityError,
 } from './core/error';
 export { toFile, type Uploadable } from './core/uploads';
+export { createNextRouteHandler } from './helpers/create-next-route-handler';
 export { emailToLLMString, threadToLLMString } from './helpers/email-to-llm';
