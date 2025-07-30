@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.2.0 (2025-07-30)
+
+Full Changelog: [v1.1.0...v1.2.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.1.0...v1.2.0)
+
+### Features
+
+* **helpers:** add LLM-friendly string conversion utilities ([64d1889](https://github.com/aiinbx/aiinbx-ts/commit/64d188917afabc4eaec4b4223882947deb977c9f))
+
+
+### Chores
+
+* configure new SDK language ([f4a4941](https://github.com/aiinbx/aiinbx-ts/commit/f4a4941e0a12d3488a87e12ecf9c2fb5bc234ac2))
+* **internal:** remove redundant imports config ([d71b3f8](https://github.com/aiinbx/aiinbx-ts/commit/d71b3f8cdae08d944117c14ec139695aa8a831bd))
+
 ## 1.1.0 (2025-07-26)
 
 Full Changelog: [v1.0.0...v1.1.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.0.0...v1.1.0)

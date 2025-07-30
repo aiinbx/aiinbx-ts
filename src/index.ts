@@ -2,21 +2,22 @@
 
 export { AIInbx as default } from './client';
 
-export { type Uploadable, toFile } from './core/uploads';
-export { APIPromise } from './core/api-promise';
 export { AIInbx, type ClientOptions } from './client';
+export { APIPromise } from './core/api-promise';
 export {
   AIInbxError,
-  APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
+  APIError,
   APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
   AuthenticationError,
+  BadRequestError,
+  ConflictError,
   InternalServerError,
+  NotFoundError,
   PermissionDeniedError,
+  RateLimitError,
   UnprocessableEntityError,
 } from './core/error';
+export { toFile, type Uploadable } from './core/uploads';
+export { emailToLLMString, threadToLLMString } from './helpers/email-to-llm';

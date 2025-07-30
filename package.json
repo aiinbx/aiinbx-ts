@@ -1,6 +1,6 @@
 {
   "name": "aiinbx",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "The official TypeScript library for the AI Inbx API",
   "author": "AI Inbx <>",
   "types": "dist/index.d.ts",
@@ -45,10 +45,6 @@
     "tsconfig-paths": "^4.0.0",
     "typescript": "5.8.3",
     "typescript-eslint": "8.31.1"
-  },
-  "imports": {
-    "aiinbx": ".",
-    "aiinbx/*": "./src/*"
   },
   "exports": {
     ".": {
