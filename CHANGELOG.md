@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.5.1 (2025-08-01)
+
+Full Changelog: [v1.5.0...v1.5.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.5.0...v1.5.1)
+
+### Bug Fixes
+
+* **mcp:** avoid sending `jq_filter` to base API ([e6d5dd4](https://github.com/aiinbx/aiinbx-ts/commit/e6d5dd4255974dc46f0cbc712f2853490d20a917))
+* **mcp:** reverse validJson capability option and limit scope ([33e710a](https://github.com/aiinbx/aiinbx-ts/commit/33e710a7a4c32f6baf2fe8249e7dd3847e2dfb7d))
+
 ## 1.5.0 (2025-07-30)
 
 Full Changelog: [v1.4.0...v1.5.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.4.0...v1.5.0)
