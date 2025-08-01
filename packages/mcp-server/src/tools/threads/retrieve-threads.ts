@@ -40,8 +40,8 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: AIInbx, args: Record<string, unknown> | undefined) => {
-  const { threadId, ...body } = args as any;
-  return asTextContentResult(await maybeFilter(args, await client.threads.retrieve(threadId)));
+  const { threadId, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.threads.retrieve(threadId)));
 };
 
 export default { metadata, tool, handler };
