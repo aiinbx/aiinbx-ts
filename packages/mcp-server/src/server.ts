@@ -26,7 +26,7 @@ export { endpoints } from './tools';
 export const server = new McpServer(
   {
     name: 'aiinbx_api',
-    version: '1.5.1',
+    version: '1.6.0',
   },
   { capabilities: { tools: {}, logging: {} } },
 );

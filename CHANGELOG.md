@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.6.0 (2025-08-02)
+
+Full Changelog: [v1.5.1...v1.6.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.5.1...v1.6.0)
+
+### Features
+
+* **mcp:** add logging when environment variable is set ([6977fb3](https://github.com/aiinbx/aiinbx-ts/commit/6977fb3e93159c6d75d0add28543a61165ce46f3))
+
 ## 1.5.1 (2025-08-01)
 
 Full Changelog: [v1.5.0...v1.5.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.5.0...v1.5.1)
