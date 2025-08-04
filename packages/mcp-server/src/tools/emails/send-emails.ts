@@ -76,6 +76,9 @@ export const tool: Tool = {
       in_reply_to: {
         type: 'string',
       },
+      is_draft: {
+        type: 'boolean',
+      },
       references: {
         type: 'array',
         items: {

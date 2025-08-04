@@ -60,6 +60,9 @@ export const tool: Tool = {
       from_name: {
         type: 'string',
       },
+      is_draft: {
+        type: 'boolean',
+      },
       reply_all: {
         type: 'boolean',
       },

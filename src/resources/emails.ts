@@ -140,6 +140,8 @@ export interface EmailReplyParams {
 
   from_name?: string;
 
+  is_draft?: boolean;
+
   reply_all?: boolean;
 
   subject?: string;
@@ -165,6 +167,8 @@ export interface EmailSendParams {
   from_name?: string;
 
   in_reply_to?: string;
+
+  is_draft?: boolean;
 
   references?: Array<string>;
 
