@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.7.0 (2025-08-06)
+
+Full Changelog: [v1.6.0...v1.7.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.6.0...v1.7.0)
+
+### Features
+
+* **mcp:** remote server with passthru auth ([8bcbcd4](https://github.com/aiinbx/aiinbx-ts/commit/8bcbcd4ec44da7e5a85db15790bee2165abea0fb))
+
+
+### Bug Fixes
+
+* **mcp:** fix bug in header handling ([8479ed6](https://github.com/aiinbx/aiinbx-ts/commit/8479ed64743e595ce87cf1d653710cfbcce3ca5c))
+
 ## 1.6.0 (2025-08-04)
 
 Full Changelog: [v1.5.1...v1.6.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.5.1...v1.6.0)
