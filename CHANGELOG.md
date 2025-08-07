@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.7.1 (2025-08-07)
+
+Full Changelog: [v1.7.0...v1.7.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.7.0...v1.7.1)
+
+### Features
+
+* **mcp:** add unix socket option for remote MCP ([7d4080e](https://github.com/aiinbx/aiinbx-ts/commit/7d4080e37b0c74e11648edd673e051dfebc98010))
+
+
+### Chores
+
+* **internal:** move publish config ([a6f72f4](https://github.com/aiinbx/aiinbx-ts/commit/a6f72f420bce5db2861aaa6e046e59d5f59610fb))
+* **mcp:** refactor streamable http transport ([bd1c4d2](https://github.com/aiinbx/aiinbx-ts/commit/bd1c4d2342f20494855af5a63af2fe6a26781843))
+
 ## 1.7.0 (2025-08-06)
 
 Full Changelog: [v1.6.0...v1.7.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.6.0...v1.7.0)
