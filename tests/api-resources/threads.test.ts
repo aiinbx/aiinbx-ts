@@ -8,7 +8,7 @@ const client = new AIInbx({
 });
 
 describe('resource threads', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.threads.retrieve('threadId');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource threads', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('search', async () => {
     const responsePromise = client.threads.search({});
     const rawResponse = await responsePromise.asResponse();
