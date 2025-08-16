@@ -8,7 +8,7 @@ const client = new AIInbx({
 });
 
 describe('resource emails', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.emails.retrieve('emailId');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource emails', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('reply: only required params', async () => {
     const responsePromise = client.emails.reply('emailId', { from: 'dev@stainless.com', html: 'html' });
     const rawResponse = await responsePromise.asResponse();
@@ -32,7 +32,7 @@ describe('resource emails', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('reply: required and optional params', async () => {
     const response = await client.emails.reply('emailId', {
       from: 'dev@stainless.com',
@@ -48,7 +48,7 @@ describe('resource emails', () => {
     });
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('send: only required params', async () => {
     const responsePromise = client.emails.send({
       from: 'dev@stainless.com',
@@ -65,7 +65,7 @@ describe('resource emails', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('send: required and optional params', async () => {
     const response = await client.emails.send({
       from: 'dev@stainless.com',

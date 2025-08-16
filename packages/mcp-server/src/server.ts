@@ -26,7 +26,7 @@ export const newMcpServer = () =>
   new McpServer(
     {
       name: 'aiinbx_api',
-      version: '1.7.0',
+      version: '1.7.1',
     },
     { capabilities: { tools: {}, logging: {} } },
   );
@@ -67,7 +67,6 @@ export function init(params: {
   const logAtLevel =
     (level: 'debug' | 'info' | 'warning' | 'error') =>
     (message: string, ...rest: unknown[]) => {
-      console.error(message, ...rest);
       void server.sendLoggingMessage({
         level,
         data: { message, rest },

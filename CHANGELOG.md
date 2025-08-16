@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.7.1 (2025-08-16)
+
+Full Changelog: [v1.7.0...v1.7.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.7.0...v1.7.1)
+
+### Features
+
+* **mcp:** add unix socket option for remote MCP ([7d4080e](https://github.com/aiinbx/aiinbx-ts/commit/7d4080e37b0c74e11648edd673e051dfebc98010))
+
+
+### Chores
+
+* **deps:** update dependency @types/node to v20.17.58 ([5730626](https://github.com/aiinbx/aiinbx-ts/commit/5730626726b7c1353086ea6cddcebd0e8034d26e))
+* **internal:** codegen related update ([2733631](https://github.com/aiinbx/aiinbx-ts/commit/27336319b0113dc4ae212012f785a3d9579b8a48))
+* **internal:** formatting change ([394ea55](https://github.com/aiinbx/aiinbx-ts/commit/394ea5551dc3ea91747a9320a6e4f7c16156dd83))
+* **internal:** move publish config ([a6f72f4](https://github.com/aiinbx/aiinbx-ts/commit/a6f72f420bce5db2861aaa6e046e59d5f59610fb))
+* **internal:** update comment in script ([30caa74](https://github.com/aiinbx/aiinbx-ts/commit/30caa742b9e82afeb62881841c5c7d05e7e41296))
+* **mcp:** document remote server in README.md ([9b74e9d](https://github.com/aiinbx/aiinbx-ts/commit/9b74e9ddd107c3aecbe06c1d4875d5e623e95ecb))
+* **mcp:** minor cleanup of types and package.json ([c56eb67](https://github.com/aiinbx/aiinbx-ts/commit/c56eb677ff00fdb312f81f1948d9d72b80ebeab5))
+* **mcp:** refactor streamable http transport ([bd1c4d2](https://github.com/aiinbx/aiinbx-ts/commit/bd1c4d2342f20494855af5a63af2fe6a26781843))
+* **mcp:** update README ([8e9efe5](https://github.com/aiinbx/aiinbx-ts/commit/8e9efe557456981f4871fefe6320403cc31805dd))
+* update @stainless-api/prism-cli to v5.15.0 ([81b63e2](https://github.com/aiinbx/aiinbx-ts/commit/81b63e2b70db77c5132a5f09e46eaba24f20e4c4))
+
 ## 1.7.0 (2025-08-06)
 
 Full Changelog: [v1.6.0...v1.7.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.6.0...v1.7.0)
