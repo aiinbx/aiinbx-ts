@@ -730,8 +730,10 @@ export class AIInbx {
   threads: API.Threads = new API.Threads(this);
   emails: API.Emails = new API.Emails(this);
 }
+
 AIInbx.Threads = Threads;
 AIInbx.Emails = Emails;
+
 export declare namespace AIInbx {
   export type RequestOptions = Opts.RequestOptions;
 
