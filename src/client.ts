@@ -688,7 +688,7 @@ export class AIInbx {
         // Preserve legacy string encoding behavior for now
         headers.values.has('content-type')) ||
       // `Blob` is superset of `File`
-      body instanceof Blob ||
+      ((globalThis as any).Blob && body instanceof (globalThis as any).Blob) ||
       // `FormData` -> `multipart/form-data`
       body instanceof FormData ||
       // `URLSearchParams` -> `application/x-www-form-urlencoded`
@@ -730,8 +730,10 @@ export class AIInbx {
   threads: API.Threads = new API.Threads(this);
   emails: API.Emails = new API.Emails(this);
 }
+
 AIInbx.Threads = Threads;
 AIInbx.Emails = Emails;
+
 export declare namespace AIInbx {
   export type RequestOptions = Opts.RequestOptions;
 
