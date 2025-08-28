@@ -5,6 +5,7 @@ import { Metadata, Endpoint, HandlerFunction } from './types';
 export { Metadata, Endpoint, HandlerFunction };
 
 import retrieve_threads from './threads/retrieve-threads';
+import forward_threads from './threads/forward-threads';
 import search_threads from './threads/search-threads';
 import retrieve_emails from './emails/retrieve-emails';
 import reply_emails from './emails/reply-emails';
@@ -17,6 +18,7 @@ function addEndpoint(endpoint: Endpoint) {
 }
 
 addEndpoint(retrieve_threads);
+addEndpoint(forward_threads);
 addEndpoint(search_threads);
 addEndpoint(retrieve_emails);
 addEndpoint(reply_emails);

@@ -8,7 +8,7 @@ const client = new AIInbx({
 });
 
 describe('resource threads', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.threads.retrieve('threadId');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,33 @@ describe('resource threads', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
+  test.skip('forward: only required params', async () => {
+    const responsePromise = client.threads.forward('threadId', { to: 'dev@stainless.com' });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  // Prism tests are disabled
+  test.skip('forward: required and optional params', async () => {
+    const response = await client.threads.forward('threadId', {
+      to: 'dev@stainless.com',
+      bcc: 'dev@stainless.com',
+      cc: 'dev@stainless.com',
+      from: 'dev@stainless.com',
+      from_name: 'from_name',
+      includeAttachments: true,
+      is_draft: true,
+      note: 'note',
+    });
+  });
+
+  // Prism tests are disabled
   test.skip('search', async () => {
     const responsePromise = client.threads.search({});
     const rawResponse = await responsePromise.asResponse();

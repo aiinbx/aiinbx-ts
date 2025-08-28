@@ -3,11 +3,13 @@
 Types:
 
 - <code><a href="./src/resources/threads.ts">ThreadRetrieveResponse</a></code>
+- <code><a href="./src/resources/threads.ts">ThreadForwardResponse</a></code>
 - <code><a href="./src/resources/threads.ts">ThreadSearchResponse</a></code>
 
 Methods:
 
 - <code title="get /threads/{threadId}">client.threads.<a href="./src/resources/threads.ts">retrieve</a>(threadID) -> ThreadRetrieveResponse</code>
+- <code title="post /threads/{threadId}/forward">client.threads.<a href="./src/resources/threads.ts">forward</a>(threadID, { ...params }) -> ThreadForwardResponse</code>
 - <code title="post /threads/search">client.threads.<a href="./src/resources/threads.ts">search</a>({ ...params }) -> ThreadSearchResponse</code>
 
 # Emails
