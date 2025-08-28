@@ -207,7 +207,7 @@ The following tools are available in this MCP server.
 ### Resource `threads`:
 
 - `retrieve_threads` (`read`): Retrieve a specific thread with all its emails by thread ID using API key authentication
-- `forward_threads` (`write`): Forward the entire thread as a readable transcript. Attachments are included as secure links by default.
+- `forward_threads` (`write`): Forward the entire thread as a readable transcript.
 - `search_threads` (`write`): Search threads with various filtering options optimized for AI agents
 
 ### Resource `emails`:
