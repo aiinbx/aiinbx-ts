@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'forward_threads',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nForward the entire thread as a readable transcript. Attachments are included as secure links by default.\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    emailId: {\n      type: 'string'\n    },\n    messageId: {\n      type: 'string'\n    },\n    threadId: {\n      type: 'string'\n    }\n  },\n  required: [    'emailId',\n    'messageId',\n    'threadId'\n  ]\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nForward the entire thread as a readable transcript.\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    emailId: {\n      type: 'string'\n    },\n    messageId: {\n      type: 'string'\n    },\n    threadId: {\n      type: 'string'\n    }\n  },\n  required: [    'emailId',\n    'messageId',\n    'threadId'\n  ]\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
