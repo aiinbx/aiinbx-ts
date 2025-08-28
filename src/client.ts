@@ -25,6 +25,8 @@ import {
   Emails,
 } from './resources/emails';
 import {
+  ThreadForwardParams,
+  ThreadForwardResponse,
   ThreadRetrieveResponse,
   ThreadSearchParams,
   ThreadSearchResponse,
@@ -740,7 +742,9 @@ export declare namespace AIInbx {
   export {
     Threads as Threads,
     type ThreadRetrieveResponse as ThreadRetrieveResponse,
+    type ThreadForwardResponse as ThreadForwardResponse,
     type ThreadSearchResponse as ThreadSearchResponse,
+    type ThreadForwardParams as ThreadForwardParams,
     type ThreadSearchParams as ThreadSearchParams,
   };
 

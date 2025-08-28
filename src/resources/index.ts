@@ -11,6 +11,8 @@ export {
 export {
   Threads,
   type ThreadRetrieveResponse,
+  type ThreadForwardResponse,
   type ThreadSearchResponse,
+  type ThreadForwardParams,
   type ThreadSearchParams,
 } from './threads';

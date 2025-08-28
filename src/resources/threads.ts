@@ -15,6 +15,18 @@ export class Threads extends APIResource {
   }
 
   /**
+   * Forward the entire thread as a readable transcript. Attachments are included as
+   * secure links by default.
+   */
+  forward(
+    threadID: string,
+    body: ThreadForwardParams,
+    options?: RequestOptions,
+  ): APIPromise<ThreadForwardResponse> {
+    return this._client.post(path`/threads/${threadID}/forward`, { body, ...options });
+  }
+
+  /**
    * Search threads with various filtering options optimized for AI agents
    */
   search(body: ThreadSearchParams, options?: RequestOptions): APIPromise<ThreadSearchResponse> {
@@ -115,6 +127,14 @@ export namespace ThreadRetrieveResponse {
   }
 }
 
+export interface ThreadForwardResponse {
+  emailId: string;
+
+  messageId: string;
+
+  threadId: string;
+}
+
 export interface ThreadSearchResponse {
   pagination: ThreadSearchResponse.Pagination;
 
@@ -149,6 +169,24 @@ export namespace ThreadSearchResponse {
 
     updatedAt: string;
   }
+}
+
+export interface ThreadForwardParams {
+  to: string | Array<string>;
+
+  bcc?: string | Array<string>;
+
+  cc?: string | Array<string>;
+
+  from?: string;
+
+  from_name?: string;
+
+  includeAttachments?: boolean;
+
+  is_draft?: boolean;
+
+  note?: string;
 }
 
 export interface ThreadSearchParams {
@@ -199,7 +237,9 @@ export interface ThreadSearchParams {
 export declare namespace Threads {
   export {
     type ThreadRetrieveResponse as ThreadRetrieveResponse,
+    type ThreadForwardResponse as ThreadForwardResponse,
     type ThreadSearchResponse as ThreadSearchResponse,
+    type ThreadForwardParams as ThreadForwardParams,
     type ThreadSearchParams as ThreadSearchParams,
   };
 }
