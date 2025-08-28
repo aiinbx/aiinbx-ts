@@ -15,8 +15,7 @@ export class Threads extends APIResource {
   }
 
   /**
-   * Forward the entire thread as a readable transcript. Attachments are included as
-   * secure links by default.
+   * Forward the entire thread as a readable transcript.
    */
   forward(
     threadID: string,
