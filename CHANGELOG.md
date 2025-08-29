@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.8.1 (2025-08-29)
+
+Full Changelog: [v1.8.0...v1.8.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.8.0...v1.8.1)
+
+### Chores
+
+* **internal:** update global Error reference ([1f7ee5b](https://github.com/aiinbx/aiinbx-ts/commit/1f7ee5b683f1bd369090546146821a0588246fbb))
+
 ## 1.8.0 (2025-08-28)
 
 Full Changelog: [v1.7.1...v1.8.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.7.1...v1.8.0)
