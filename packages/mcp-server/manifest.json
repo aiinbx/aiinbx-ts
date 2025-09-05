@@ -1,0 +1,42 @@
+{
+  "dxt_version": "0.1",
+  "name": "aiinbx-mcp",
+  "version": "1.8.0",
+  "description": "The official MCP Server for the AI Inbx API",
+  "author": {
+    "name": "AI Inbx",
+    "email": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiinbx/aiinbx-ts.git"
+  },
+  "homepage": "https://github.com/aiinbx/aiinbx-ts/tree/main/packages/mcp-server#readme",
+  "documentation": "",
+  "server": {
+    "type": "node",
+    "entry_point": "${__dirname}/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "AI_INBX_API_KEY": "${user_config.AI_INBX_API_KEY}"
+      }
+    }
+  },
+  "user_config": {
+    "AI_INBX_API_KEY": {
+      "title": "api_key",
+      "description": "API Key authentication using Bearer token",
+      "required": true,
+      "type": "string"
+    }
+  },
+  "tools_generated": true,
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": ["api"]
+}
