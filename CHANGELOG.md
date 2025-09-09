@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.9.0 (2025-09-09)
+
+Full Changelog: [v1.8.0...v1.9.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.8.0...v1.9.0)
+
+### Features
+
+* **mcp:** allow setting logging level ([18580d0](https://github.com/aiinbx/aiinbx-ts/commit/18580d0cdcafd745ebd6089c3e22c15056c3b062))
+* **mcp:** expose client options in `streamableHTTPApp` ([48ca180](https://github.com/aiinbx/aiinbx-ts/commit/48ca180849398e9d51b66bb80503d242b2138ef5))
+
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([d4a66dc](https://github.com/aiinbx/aiinbx-ts/commit/d4a66dc0d0bdc7c21a11a11cbef70fcd21e13720))
+* **mcp:** fix query options parsing ([27fde1e](https://github.com/aiinbx/aiinbx-ts/commit/27fde1ec0f3cf7a3048d65f89e5aeeafdc5878e0))
+* **mcp:** update dxt manifest.json files ([6ced3a1](https://github.com/aiinbx/aiinbx-ts/commit/6ced3a12ab81ff7f879836f8304ddf267b6663ae))
+
+
+### Chores
+
+* **internal:** codegen related update ([d1ab2a3](https://github.com/aiinbx/aiinbx-ts/commit/d1ab2a314cc3e3bb131fc572d1457a91a5aec61d))
+* **internal:** codegen related update ([5b2a5b2](https://github.com/aiinbx/aiinbx-ts/commit/5b2a5b26461cdda049ca638441e2fcca2b92889f))
+* **internal:** codegen related update ([698d0af](https://github.com/aiinbx/aiinbx-ts/commit/698d0af17bc3d7b9ee1891dfa0c530222c8c1209))
+* **internal:** update global Error reference ([1f7ee5b](https://github.com/aiinbx/aiinbx-ts/commit/1f7ee5b683f1bd369090546146821a0588246fbb))
+
 ## 1.8.0 (2025-08-28)
 
 Full Changelog: [v1.7.1...v1.8.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.7.1...v1.8.0)
