@@ -4,15 +4,13 @@
   "version": "1.8.0",
   "description": "The official MCP Server for the AI Inbx API",
   "author": {
-    "name": "AI Inbx",
-    "email": ""
+    "name": "AI Inbx"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aiinbx/aiinbx-ts.git"
   },
   "homepage": "https://github.com/aiinbx/aiinbx-ts/tree/main/packages/mcp-server#readme",
-  "documentation": "",
   "server": {
     "type": "node",
     "entry_point": "${__dirname}/index.js",
