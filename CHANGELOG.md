@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.9.1 (2025-09-12)
+
+Full Changelog: [v1.9.0...v1.9.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.9.0...v1.9.1)
+
+### Bug Fixes
+
+* **mcp:** fix uploading dxt release assets ([655697b](https://github.com/aiinbx/aiinbx-ts/commit/655697b4e6481f144b7c2847696dbc5e532553d6))
+
+
+### Chores
+
+* **mcp:** upload dxt as release asset ([62e7c94](https://github.com/aiinbx/aiinbx-ts/commit/62e7c94279946a564f34344a6e9818003cbc5b42))
+
 ## 1.9.0 (2025-09-09)
 
 Full Changelog: [v1.8.0...v1.9.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.8.0...v1.9.0)
