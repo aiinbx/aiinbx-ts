@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.9.2 (2025-09-17)
+
+Full Changelog: [v1.9.1...v1.9.2](https://github.com/aiinbx/aiinbx-ts/compare/v1.9.1...v1.9.2)
+
+### Bug Fixes
+
+* **ci:** set permissions for DXT publish action ([248b0cc](https://github.com/aiinbx/aiinbx-ts/commit/248b0cced1920f2dfdd843458389d55342ee6a8b))
+
 ## 1.9.1 (2025-09-12)
 
 Full Changelog: [v1.9.0...v1.9.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.9.0...v1.9.1)
