@@ -7,10 +7,9 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "baseUrl": "./",
     "paths": {
-      "aiinbx/*": ["src/*"],
-      "aiinbx": ["src/index.ts"]
+      "aiinbx/*": ["./src/*"],
+      "aiinbx": ["./src/index.ts"]
     },
     "noEmit": true,
 
