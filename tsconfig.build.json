@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "aiinbx/*": ["dist/src/*"],
-      "aiinbx": ["dist/src/index.ts"]
+      "aiinbx/*": ["./dist/src/*"],
+      "aiinbx": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
