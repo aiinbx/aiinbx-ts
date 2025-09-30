@@ -1,5 +1,40 @@
 # Changelog
 
+## 1.10.0 (2025-09-30)
+
+Full Changelog: [v1.9.2...v1.10.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.9.2...v1.10.0)
+
+### Features
+
+* **mcp:** add docs search tool ([2cd5e3d](https://github.com/aiinbx/aiinbx-ts/commit/2cd5e3d17845ea83d2708487f07d7d0ff56cfd63))
+* **mcp:** add option for including docs tools ([f525b19](https://github.com/aiinbx/aiinbx-ts/commit/f525b1987e6ff4974d8339cbe3264b20676108de))
+* **mcp:** enable experimental docs search tool ([0ae2584](https://github.com/aiinbx/aiinbx-ts/commit/0ae2584cee11f91da37bab374f09c4e787d55942))
+
+
+### Bug Fixes
+
+* **mcp:** fix cli argument parsing logic ([af9afa5](https://github.com/aiinbx/aiinbx-ts/commit/af9afa5df08e18834fbf353ece9c40e815aa2490))
+* **mcp:** resolve a linting issue in server code ([3aeca0a](https://github.com/aiinbx/aiinbx-ts/commit/3aeca0af85b767ac37a408ae082167df83dab7e3))
+
+
+### Performance Improvements
+
+* faster formatting ([e756228](https://github.com/aiinbx/aiinbx-ts/commit/e756228910b3c803e65d010735f8b8de5206f808))
+
+
+### Chores
+
+* **codegen:** internal codegen update ([f9ba1f7](https://github.com/aiinbx/aiinbx-ts/commit/f9ba1f75cbcc9fe15b3a4da7adc514fe510a5481))
+* do not install brew dependencies in ./scripts/bootstrap by default ([08631e4](https://github.com/aiinbx/aiinbx-ts/commit/08631e4ec9759f9659231b0e4c6d0d477736bfd0))
+* **internal:** codegen related update ([9acdf22](https://github.com/aiinbx/aiinbx-ts/commit/9acdf22b3640c00bbc79b9d98c0e0a740bfb408a))
+* **internal:** fix incremental formatting in some cases ([1a7d63b](https://github.com/aiinbx/aiinbx-ts/commit/1a7d63b954a7a870d571a98d3a00b6e625729364))
+* **internal:** gitignore .mcpb files ([588ceed](https://github.com/aiinbx/aiinbx-ts/commit/588ceed08aed2bd95edb6ac10d12470c7a5707d6))
+* **internal:** ignore .eslintcache ([43a34fd](https://github.com/aiinbx/aiinbx-ts/commit/43a34fd6c8dfd47d7df691b9b442e82472d56832))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([cbd0a9d](https://github.com/aiinbx/aiinbx-ts/commit/cbd0a9d913b30a68a2fccfb883d0cc3ca5d9f9de))
+* **mcp:** allow pointing `docs_search` tool at other URLs ([3528b25](https://github.com/aiinbx/aiinbx-ts/commit/3528b250e23b6dd29123190b65f8ae96e75ddee5))
+* **mcp:** rename dxt to mcpb ([6946f03](https://github.com/aiinbx/aiinbx-ts/commit/6946f031d09de17e711b0fa9ae4c2c8e07a6cb70))
+* update lockfile ([40ddf94](https://github.com/aiinbx/aiinbx-ts/commit/40ddf94dc37f8b64e2f3b79add09350673f7c6d4))
+
 ## 1.9.2 (2025-09-17)
 
 Full Changelog: [v1.9.1...v1.9.2](https://github.com/aiinbx/aiinbx-ts/compare/v1.9.1...v1.9.2)
