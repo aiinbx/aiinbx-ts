@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.10.1 (2025-10-04)
+
+Full Changelog: [v1.10.0...v1.10.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.10.0...v1.10.1)
+
+### Chores
+
+* **internal:** remove .eslintcache ([b2a7283](https://github.com/aiinbx/aiinbx-ts/commit/b2a7283033f9047b0f1eafcb9d4b39b2b3b5d3ea))
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([35cd835](https://github.com/aiinbx/aiinbx-ts/commit/35cd83547cc1c9052c4b16c8e2cad9371e0cb30d))
+
 ## 1.10.0 (2025-09-30)
 
 Full Changelog: [v1.9.2...v1.10.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.9.2...v1.10.0)
