@@ -215,3 +215,11 @@ The following tools are available in this MCP server.
 - `retrieve_emails` (`read`): Retrieve a specific email by its ID using API key authentication
 - `reply_emails` (`write`): Reply to an existing email. Automatically handles reply headers (In-Reply-To, References) and thread association. The reply will be sent from a verified domain belonging to the organization.
 - `send_emails` (`write`): Send an email from a verified domain belonging to the organization. Useful for transactional or conversational messages. Returns metadata including identifiers for further queries.
+
+### Resource `domains`:
+
+- `create_domains` (`write`): Create a new domain for the organization and return required DNS records to configure.
+- `retrieve_domains` (`read`): Retrieve a domain by its ID
+- `list_domains` (`read`): List all domains belonging to the API key's organization
+- `delete_domains` (`write`): Delete a domain by ID from the organization
+- `verify_domains` (`write`): Run verification checks for the domain and update its stored status and DNS record verification flags.

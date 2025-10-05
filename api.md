@@ -25,3 +25,21 @@ Methods:
 - <code title="get /emails/{emailId}">client.emails.<a href="./src/resources/emails.ts">retrieve</a>(emailID) -> EmailRetrieveResponse</code>
 - <code title="post /emails/{emailId}/reply">client.emails.<a href="./src/resources/emails.ts">reply</a>(emailID, { ...params }) -> EmailReplyResponse</code>
 - <code title="post /emails/send">client.emails.<a href="./src/resources/emails.ts">send</a>({ ...params }) -> EmailSendResponse</code>
+
+# Domains
+
+Types:
+
+- <code><a href="./src/resources/domains.ts">DomainCreateResponse</a></code>
+- <code><a href="./src/resources/domains.ts">DomainRetrieveResponse</a></code>
+- <code><a href="./src/resources/domains.ts">DomainListResponse</a></code>
+- <code><a href="./src/resources/domains.ts">DomainDeleteResponse</a></code>
+- <code><a href="./src/resources/domains.ts">DomainVerifyResponse</a></code>
+
+Methods:
+
+- <code title="post /domains">client.domains.<a href="./src/resources/domains.ts">create</a>({ ...params }) -> DomainCreateResponse</code>
+- <code title="get /domains/{domainId}">client.domains.<a href="./src/resources/domains.ts">retrieve</a>(domainID) -> DomainRetrieveResponse</code>
+- <code title="get /domains">client.domains.<a href="./src/resources/domains.ts">list</a>() -> DomainListResponse</code>
+- <code title="delete /domains/{domainId}">client.domains.<a href="./src/resources/domains.ts">delete</a>(domainID) -> DomainDeleteResponse</code>
+- <code title="post /domains/{domainId}/verify">client.domains.<a href="./src/resources/domains.ts">verify</a>(domainID) -> DomainVerifyResponse</code>
