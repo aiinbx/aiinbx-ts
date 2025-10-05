@@ -1,0 +1,45 @@
+// File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
+
+import { maybeFilter } from 'aiinbx-mcp/filtering';
+import { Metadata, asTextContentResult } from 'aiinbx-mcp/tools/types';
+
+import { Tool } from '@modelcontextprotocol/sdk/types.js';
+import AIInbx from 'aiinbx';
+
+export const metadata: Metadata = {
+  resource: 'domains',
+  operation: 'write',
+  tags: [],
+  httpMethod: 'post',
+  httpPath: '/domains/{domainId}/verify',
+  operationId: 'verifyDomain',
+};
+
+export const tool: Tool = {
+  name: 'verify_domains',
+  description:
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nRun verification checks for the domain and update its stored status and DNS record verification flags.\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    domain: {\n      type: 'object',\n      properties: {\n        id: {\n          type: 'string'\n        },\n        createdAt: {\n          type: 'string'\n        },\n        domain: {\n          type: 'string'\n        },\n        status: {\n          type: 'string',\n          enum: [            'VERIFIED',\n            'PENDING_VERIFICATION',\n            'NOT_REGISTERED'\n          ]\n        },\n        updatedAt: {\n          type: 'string'\n        },\n        verifiedAt: {\n          type: 'string'\n        },\n        dnsRecords: {\n          type: 'array',\n          items: {\n            type: 'object',\n            properties: {\n              name: {\n                type: 'string'\n              },\n              type: {\n                type: 'string',\n                enum: [                  'TXT',\n                  'CNAME',\n                  'MX'\n                ]\n              },\n              value: {\n                type: 'string'\n              },\n              isVerified: {\n                type: 'boolean'\n              },\n              lastCheckedAt: {\n                type: 'string'\n              },\n              priority: {\n                type: 'number'\n              },\n              verificationStatus: {\n                type: 'string',\n                enum: [                  'verified',\n                  'missing',\n                  'pending'\n                ]\n              }\n            },\n            required: [              'name',\n              'type',\n              'value'\n            ]\n          }\n        }\n      },\n      required: [        'id',\n        'createdAt',\n        'domain',\n        'status',\n        'updatedAt',\n        'verifiedAt'\n      ]\n    },\n    verification: {\n      type: 'object',\n      properties: {\n        debug: {\n          type: 'object',\n          properties: {\n            actualVerificationTokens: {\n              type: 'array',\n              items: {\n                type: 'string'\n              }\n            },\n            domain: {\n              type: 'string'\n            },\n            verificationTokenMatch: {\n              type: 'boolean'\n            },\n            expectedVerificationToken: {\n              type: 'string'\n            }\n          },\n          required: [            'actualVerificationTokens',\n            'domain',\n            'verificationTokenMatch'\n          ]\n        },\n        dkimStatus: {\n          type: 'string',\n          enum: [            'Pending',\n            'Success',\n            'Failed',\n            'NotStarted',\n            'TemporaryFailure'\n          ]\n        },\n        dns: {\n          type: 'object',\n          properties: {\n            dkim: {\n              type: 'object',\n              additionalProperties: true\n            },\n            dmarc: {\n              type: 'object',\n              properties: {\n                present: {\n                  type: 'boolean'\n                },\n                source: {\n                  type: 'string',\n                  enum: [                    'subdomain',\n                    'parent',\n                    'none'\n                  ]\n                }\n              },\n              required: [                'present',\n                'source'\n              ]\n            },\n            domainVerification: {\n              type: 'boolean'\n            },\n            mailFrom: {\n              type: 'object',\n              properties: {\n                domain: {\n                  type: 'string'\n                },\n                mx: {\n                  type: 'boolean'\n                },\n                spf: {\n                  type: 'boolean'\n                }\n              },\n              required: [                'domain',\n                'mx',\n                'spf'\n              ]\n            },\n            mx: {\n              type: 'object',\n              properties: {\n                expectedPriority: {\n                  type: 'number'\n                },\n                found: {\n                  type: 'boolean'\n                },\n                records: {\n                  type: 'array',\n                  items: {\n                    type: 'object',\n                    properties: {\n                      exchange: {\n                        type: 'string'\n                      },\n                      priority: {\n                        type: 'number'\n                      }\n                    },\n                    required: [                      'exchange',\n                      'priority'\n                    ]\n                  }\n                }\n              },\n              required: [                'expectedPriority',\n                'found',\n                'records'\n              ]\n            },\n            spf: {\n              type: 'boolean'\n            }\n          },\n          required: [            'dkim',\n            'dmarc',\n            'domainVerification',\n            'mailFrom',\n            'mx',\n            'spf'\n          ]\n        },\n        mxConflict: {\n          type: 'object',\n          properties: {\n            hasConflict: {\n              type: 'boolean'\n            },\n            conflictingRecords: {\n              type: 'array',\n              items: {\n                type: 'object',\n                properties: {\n                  exchange: {\n                    type: 'string'\n                  },\n                  priority: {\n                    type: 'number'\n                  }\n                },\n                required: [                  'exchange',\n                  'priority'\n                ]\n              }\n            },\n            message: {\n              type: 'string'\n            }\n          },\n          required: [            'hasConflict'\n          ]\n        },\n        ready: {\n          type: 'boolean'\n        },\n        verification: {\n          type: 'string',\n          enum: [            'Pending',\n            'Success',\n            'Failed',\n            'NotStarted',\n            'TemporaryFailure'\n          ]\n        }\n      },\n      required: [        'debug',\n        'dkimStatus',\n        'dns',\n        'mxConflict',\n        'ready',\n        'verification'\n      ]\n    }\n  },\n  required: [    'domain',\n    'verification'\n  ]\n}\n```",
+  inputSchema: {
+    type: 'object',
+    properties: {
+      domainId: {
+        type: 'string',
+      },
+      jq_filter: {
+        type: 'string',
+        title: 'jq Filter',
+        description:
+          'A jq filter to apply to the response to include certain fields. Consult the output schema in the tool description to see the fields that are available.\n\nFor example: to include only the `name` field in every object of a results array, you can provide ".results[].name".\n\nFor more information, see the [jq documentation](https://jqlang.org/manual/).',
+      },
+    },
+    required: ['domainId'],
+  },
+  annotations: {},
+};
+
+export const handler = async (client: AIInbx, args: Record<string, unknown> | undefined) => {
+  const { domainId, jq_filter, ...body } = args as any;
+  return asTextContentResult(await maybeFilter(jq_filter, await client.domains.verify(domainId)));
+};
+
+export default { metadata, tool, handler };
