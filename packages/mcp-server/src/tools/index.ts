@@ -10,6 +10,11 @@ import search_threads from './threads/search-threads';
 import retrieve_emails from './emails/retrieve-emails';
 import reply_emails from './emails/reply-emails';
 import send_emails from './emails/send-emails';
+import create_domains from './domains/create-domains';
+import retrieve_domains from './domains/retrieve-domains';
+import list_domains from './domains/list-domains';
+import delete_domains from './domains/delete-domains';
+import verify_domains from './domains/verify-domains';
 
 export const endpoints: Endpoint[] = [];
 
@@ -23,6 +28,11 @@ addEndpoint(search_threads);
 addEndpoint(retrieve_emails);
 addEndpoint(reply_emails);
 addEndpoint(send_emails);
+addEndpoint(create_domains);
+addEndpoint(retrieve_domains);
+addEndpoint(list_domains);
+addEndpoint(delete_domains);
+addEndpoint(verify_domains);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';

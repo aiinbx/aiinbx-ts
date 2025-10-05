@@ -17,6 +17,15 @@ import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import {
+  DomainCreateParams,
+  DomainCreateResponse,
+  DomainDeleteResponse,
+  DomainListResponse,
+  DomainRetrieveResponse,
+  DomainVerifyResponse,
+  Domains,
+} from './resources/domains';
+import {
   EmailReplyParams,
   EmailReplyResponse,
   EmailRetrieveResponse,
@@ -731,10 +740,12 @@ export class AIInbx {
 
   threads: API.Threads = new API.Threads(this);
   emails: API.Emails = new API.Emails(this);
+  domains: API.Domains = new API.Domains(this);
 }
 
 AIInbx.Threads = Threads;
 AIInbx.Emails = Emails;
+AIInbx.Domains = Domains;
 
 export declare namespace AIInbx {
   export type RequestOptions = Opts.RequestOptions;
@@ -755,5 +766,15 @@ export declare namespace AIInbx {
     type EmailSendResponse as EmailSendResponse,
     type EmailReplyParams as EmailReplyParams,
     type EmailSendParams as EmailSendParams,
+  };
+
+  export {
+    Domains as Domains,
+    type DomainCreateResponse as DomainCreateResponse,
+    type DomainRetrieveResponse as DomainRetrieveResponse,
+    type DomainListResponse as DomainListResponse,
+    type DomainDeleteResponse as DomainDeleteResponse,
+    type DomainVerifyResponse as DomainVerifyResponse,
+    type DomainCreateParams as DomainCreateParams,
   };
 }
