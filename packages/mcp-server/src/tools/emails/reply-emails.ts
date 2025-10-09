@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export const tool: Tool = {
   name: 'reply_emails',
   description:
-    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nReply to an existing email. Automatically handles reply headers (In-Reply-To, References) and thread association. The reply will be sent from a verified domain belonging to the organization.\n\n# Response Schema\n```json\n{\n  type: 'object',\n  properties: {\n    emailId: {\n      type: 'string'\n    },\n    messageId: {\n      type: 'string'\n    },\n    threadId: {\n      type: 'string'\n    }\n  },\n  required: [    'emailId',\n    'messageId',\n    'threadId'\n  ]\n}\n```",
+    "When using this tool, always use the `jq_filter` parameter to reduce the response size and improve performance.\n\nOnly omit if you're sure you don't need the data.\n\nReply to an existing email. Automatically handles reply headers (In-Reply-To, References) and thread association. The reply will be sent from a verified domain belonging to the organization.\n\n# Response Schema\n```json\n{\n  $ref: '#/$defs/email_reply_response',\n  $defs: {\n    email_reply_response: {\n      type: 'object',\n      properties: {\n        emailId: {\n          type: 'string'\n        },\n        messageId: {\n          type: 'string'\n        },\n        threadId: {\n          type: 'string'\n        }\n      },\n      required: [        'emailId',\n        'messageId',\n        'threadId'\n      ]\n    }\n  }\n}\n```",
   inputSchema: {
     type: 'object',
     properties: {
