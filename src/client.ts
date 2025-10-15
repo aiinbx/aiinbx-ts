@@ -33,6 +33,7 @@ import {
   EmailSendResponse,
   Emails,
 } from './resources/emails';
+import { Meta, MetaWebhooksSchemaResponse } from './resources/meta';
 import {
   ThreadForwardParams,
   ThreadForwardResponse,
@@ -41,6 +42,17 @@ import {
   ThreadSearchResponse,
   Threads,
 } from './resources/threads';
+import {
+  InboundEmailReceivedWebhookEvent,
+  OutboundEmailBouncedWebhookEvent,
+  OutboundEmailClickedWebhookEvent,
+  OutboundEmailComplainedWebhookEvent,
+  OutboundEmailDeliveredWebhookEvent,
+  OutboundEmailOpenedWebhookEvent,
+  OutboundEmailRejectedWebhookEvent,
+  UnwrapWebhookEvent,
+  Webhooks,
+} from './resources/webhooks';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -741,11 +753,15 @@ export class AIInbx {
   threads: API.Threads = new API.Threads(this);
   emails: API.Emails = new API.Emails(this);
   domains: API.Domains = new API.Domains(this);
+  webhooks: API.Webhooks = new API.Webhooks(this);
+  meta: API.Meta = new API.Meta(this);
 }
 
 AIInbx.Threads = Threads;
 AIInbx.Emails = Emails;
 AIInbx.Domains = Domains;
+AIInbx.Webhooks = Webhooks;
+AIInbx.Meta = Meta;
 
 export declare namespace AIInbx {
   export type RequestOptions = Opts.RequestOptions;
@@ -777,4 +793,18 @@ export declare namespace AIInbx {
     type DomainVerifyResponse as DomainVerifyResponse,
     type DomainCreateParams as DomainCreateParams,
   };
+
+  export {
+    Webhooks as Webhooks,
+    type InboundEmailReceivedWebhookEvent as InboundEmailReceivedWebhookEvent,
+    type OutboundEmailDeliveredWebhookEvent as OutboundEmailDeliveredWebhookEvent,
+    type OutboundEmailBouncedWebhookEvent as OutboundEmailBouncedWebhookEvent,
+    type OutboundEmailComplainedWebhookEvent as OutboundEmailComplainedWebhookEvent,
+    type OutboundEmailRejectedWebhookEvent as OutboundEmailRejectedWebhookEvent,
+    type OutboundEmailOpenedWebhookEvent as OutboundEmailOpenedWebhookEvent,
+    type OutboundEmailClickedWebhookEvent as OutboundEmailClickedWebhookEvent,
+    type UnwrapWebhookEvent as UnwrapWebhookEvent,
+  };
+
+  export { Meta as Meta, type MetaWebhooksSchemaResponse as MetaWebhooksSchemaResponse };
 }

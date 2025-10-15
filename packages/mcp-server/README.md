@@ -223,3 +223,7 @@ The following tools are available in this MCP server.
 - `list_domains` (`read`): List all domains belonging to the API key's organization
 - `delete_domains` (`write`): Delete a domain by ID from the organization
 - `verify_domains` (`write`): Run verification checks for the domain and update its stored status and DNS record verification flags.
+
+### Resource `meta`:
+
+- `webhooks_schema_meta` (`read`): Internal endpoint to expose webhook event schemas to SDK generators.
