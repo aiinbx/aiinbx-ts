@@ -1,6 +1,15 @@
 import type { NextRequest, NextResponse } from 'next/server';
 import crypto from 'node:crypto';
-import type { EmailRetrieveResponse } from '../../resources';
+import type {
+  InboundEmailReceivedWebhookEvent,
+  OutboundEmailBouncedWebhookEvent,
+  OutboundEmailClickedWebhookEvent,
+  OutboundEmailComplainedWebhookEvent,
+  OutboundEmailDeliveredWebhookEvent,
+  OutboundEmailOpenedWebhookEvent,
+  OutboundEmailRejectedWebhookEvent,
+  UnwrapWebhookEvent,
+} from '../../resources/webhooks';
 
 /**
  * Generic helper response type used throughout the helpers.
@@ -8,34 +17,10 @@ import type { EmailRetrieveResponse } from '../../resources';
 export type HandlerReturn = NextResponse | Promise<NextResponse>;
 
 /* -------------------------------------------------------------------------- */
-/*                             Event Type Models                              */
-/* -------------------------------------------------------------------------- */
-
-/** Base shape shared by all webhook events */
-export type WebhookDataBase = {
-  event: string;
-  attempt: number;
-  timestamp: string;
-  data: unknown;
-};
-
-/* -------------------- Specific event – inbound email ---------------------- */
-export type InboundEmailEventData = {
-  email: EmailRetrieveResponse;
-};
-
-export type InboundEmailEvent = {
-  event: 'inbound.email.received';
-  data: InboundEmailEventData;
-  attempt: number;
-  timestamp: string;
-};
-
-/* -------------------------------------------------------------------------- */
 /*                         Handler & Helper Definitions                       */
 /* -------------------------------------------------------------------------- */
 
-export type HandlerParams<T = WebhookDataBase> = {
+export type HandlerParams<T = UnwrapWebhookEvent> = {
   payload: T;
   /**
    * When `AI_INBX_SECRET` is present we validate the request signature.
@@ -48,13 +33,35 @@ export type HandlerParams<T = WebhookDataBase> = {
   rawBody: string;
 };
 
-export type InboundEmailHandler = (params: HandlerParams<InboundEmailEvent>) => HandlerReturn;
+export type InboundEmailHandler = (params: HandlerParams<InboundEmailReceivedWebhookEvent>) => HandlerReturn;
+export type OutboundEmailDeliveredHandler = (
+  params: HandlerParams<OutboundEmailDeliveredWebhookEvent>,
+) => HandlerReturn;
+export type OutboundEmailBouncedHandler = (
+  params: HandlerParams<OutboundEmailBouncedWebhookEvent>,
+) => HandlerReturn;
+export type OutboundEmailComplainedHandler = (
+  params: HandlerParams<OutboundEmailComplainedWebhookEvent>,
+) => HandlerReturn;
+export type OutboundEmailRejectedHandler = (
+  params: HandlerParams<OutboundEmailRejectedWebhookEvent>,
+) => HandlerReturn;
+export type OutboundEmailOpenedHandler = (
+  params: HandlerParams<OutboundEmailOpenedWebhookEvent>,
+) => HandlerReturn;
+export type OutboundEmailClickedHandler = (
+  params: HandlerParams<OutboundEmailClickedWebhookEvent>,
+) => HandlerReturn;
 
 /** Collection of available event handlers */
 export type EventHandlers = {
   onInboundEmail?: InboundEmailHandler;
-  // Future events should be added here, e.g.:
-  // onOutboundEmail?: OutboundEmailHandler
+  onOutboundEmailDelivered?: OutboundEmailDeliveredHandler;
+  onOutboundEmailBounced?: OutboundEmailBouncedHandler;
+  onOutboundEmailComplained?: OutboundEmailComplainedHandler;
+  onOutboundEmailRejected?: OutboundEmailRejectedHandler;
+  onOutboundEmailOpened?: OutboundEmailOpenedHandler;
+  onOutboundEmailClicked?: OutboundEmailClickedHandler;
 };
 
 /**
@@ -63,6 +70,12 @@ export type EventHandlers = {
  */
 const EVENT_HANDLER_MAP = {
   'inbound.email.received': 'onInboundEmail',
+  'outbound.email.delivered': 'onOutboundEmailDelivered',
+  'outbound.email.bounced': 'onOutboundEmailBounced',
+  'outbound.email.complained': 'onOutboundEmailComplained',
+  'outbound.email.rejected': 'onOutboundEmailRejected',
+  'outbound.email.opened': 'onOutboundEmailOpened',
+  'outbound.email.clicked': 'onOutboundEmailClicked',
 } as const satisfies Record<string, keyof EventHandlers>;
 
 /* -------------------------------------------------------------------------- */
@@ -119,9 +132,9 @@ export const createNextRouteHandler = (handlers: EventHandlers) => {
     }
 
     // Parse payload ----------------------------------------------------------
-    let payload: WebhookDataBase;
+    let payload: UnwrapWebhookEvent;
     try {
-      payload = JSON.parse(rawBody) as WebhookDataBase;
+      payload = JSON.parse(rawBody) as UnwrapWebhookEvent;
     } catch {
       return jsonResponse({ error: 'Invalid JSON payload' }, { status: 400 });
     }
