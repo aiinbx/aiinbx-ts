@@ -15,6 +15,7 @@ import retrieve_domains from './domains/retrieve-domains';
 import list_domains from './domains/list-domains';
 import delete_domains from './domains/delete-domains';
 import verify_domains from './domains/verify-domains';
+import webhooks_schema_meta from './meta/webhooks-schema-meta';
 
 export const endpoints: Endpoint[] = [];
 
@@ -33,6 +34,7 @@ addEndpoint(retrieve_domains);
 addEndpoint(list_domains);
 addEndpoint(delete_domains);
 addEndpoint(verify_domains);
+addEndpoint(webhooks_schema_meta);
 
 export type Filter = {
   type: 'resource' | 'operation' | 'tag' | 'tool';

@@ -43,3 +43,30 @@ Methods:
 - <code title="get /domains">client.domains.<a href="./src/resources/domains.ts">list</a>() -> DomainListResponse</code>
 - <code title="delete /domains/{domainId}">client.domains.<a href="./src/resources/domains.ts">delete</a>(domainID) -> DomainDeleteResponse</code>
 - <code title="post /domains/{domainId}/verify">client.domains.<a href="./src/resources/domains.ts">verify</a>(domainID) -> DomainVerifyResponse</code>
+
+# Webhooks
+
+Types:
+
+- <code><a href="./src/resources/webhooks.ts">InboundEmailReceivedWebhookEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">OutboundEmailDeliveredWebhookEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">OutboundEmailBouncedWebhookEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">OutboundEmailComplainedWebhookEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">OutboundEmailRejectedWebhookEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">OutboundEmailOpenedWebhookEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">OutboundEmailClickedWebhookEvent</a></code>
+- <code><a href="./src/resources/webhooks.ts">UnwrapWebhookEvent</a></code>
+
+Methods:
+
+- <code>client.webhooks.<a href="./src/resources/webhooks.ts">unwrap</a>(body) -> void</code>
+
+# Meta
+
+Types:
+
+- <code><a href="./src/resources/meta.ts">MetaWebhooksSchemaResponse</a></code>
+
+Methods:
+
+- <code title="get /_meta/webhooks">client.meta.<a href="./src/resources/meta.ts">webhooksSchema</a>() -> MetaWebhooksSchemaResponse</code>
