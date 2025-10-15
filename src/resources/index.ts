@@ -17,6 +17,7 @@ export {
   type EmailReplyParams,
   type EmailSendParams,
 } from './emails';
+export { Meta, type MetaWebhooksSchemaResponse } from './meta';
 export {
   Threads,
   type ThreadRetrieveResponse,
@@ -25,3 +26,14 @@ export {
   type ThreadForwardParams,
   type ThreadSearchParams,
 } from './threads';
+export {
+  Webhooks,
+  type InboundEmailReceivedWebhookEvent,
+  type OutboundEmailDeliveredWebhookEvent,
+  type OutboundEmailBouncedWebhookEvent,
+  type OutboundEmailComplainedWebhookEvent,
+  type OutboundEmailRejectedWebhookEvent,
+  type OutboundEmailOpenedWebhookEvent,
+  type OutboundEmailClickedWebhookEvent,
+  type UnwrapWebhookEvent,
+} from './webhooks';
