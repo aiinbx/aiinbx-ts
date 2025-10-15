@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.12.0 (2025-10-15)
+
+Full Changelog: [v1.11.1...v1.12.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.11.1...v1.12.0)
+
+### Features
+
+* **helpers:** add outbound email webhook event handlers ([c288e49](https://github.com/aiinbx/aiinbx-ts/commit/c288e49bf33e8d2618ddacaf82647050f8ae0bbd))
+
 ## 1.11.1 (2025-10-15)
 
 Full Changelog: [v1.11.0...v1.11.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.11.0...v1.11.1)
