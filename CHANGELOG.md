@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.11.1 (2025-10-15)
+
+Full Changelog: [v1.11.0...v1.11.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.11.0...v1.11.1)
+
+### Chores
+
+* extract some types in mcp docs ([31763a4](https://github.com/aiinbx/aiinbx-ts/commit/31763a4be0a7499243e51700e6980cb8c013c536))
+* **internal:** use npm pack for build uploads ([43fe5db](https://github.com/aiinbx/aiinbx-ts/commit/43fe5db4533068b77f5cf92436a7ccda45a504cd))
+
 ## 1.11.0 (2025-10-05)
 
 Full Changelog: [v1.10.0...v1.11.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.10.0...v1.11.0)
