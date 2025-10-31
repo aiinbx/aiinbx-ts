@@ -134,6 +134,8 @@ export interface EmailReplyParams {
 
   html: string;
 
+  attachments?: Array<EmailReplyParams.Attachment>;
+
   bcc?: string | Array<string>;
 
   cc?: string | Array<string>;
@@ -151,6 +153,20 @@ export interface EmailReplyParams {
   to?: string | Array<string>;
 }
 
+export namespace EmailReplyParams {
+  export interface Attachment {
+    content: string;
+
+    file_name: string;
+
+    cid?: string;
+
+    content_type?: string;
+
+    disposition?: 'attachment' | 'inline';
+  }
+}
+
 export interface EmailSendParams {
   from: string;
 
@@ -159,6 +175,8 @@ export interface EmailSendParams {
   subject: string;
 
   to: string | Array<string>;
+
+  attachments?: Array<EmailSendParams.Attachment>;
 
   bcc?: string | Array<string>;
 
@@ -177,6 +195,20 @@ export interface EmailSendParams {
   text?: string;
 
   threadId?: string;
+}
+
+export namespace EmailSendParams {
+  export interface Attachment {
+    content: string;
+
+    file_name: string;
+
+    cid?: string;
+
+    content_type?: string;
+
+    disposition?: 'attachment' | 'inline';
+  }
 }
 
 export declare namespace Emails {

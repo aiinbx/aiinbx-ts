@@ -36,6 +36,15 @@ describe('resource threads', () => {
   test.skip('forward: required and optional params', async () => {
     const response = await client.threads.forward('threadId', {
       to: 'dev@stainless.com',
+      attachments: [
+        {
+          content: 'content',
+          file_name: 'file_name',
+          cid: 'cid',
+          content_type: 'content_type',
+          disposition: 'attachment',
+        },
+      ],
       bcc: 'dev@stainless.com',
       cc: 'dev@stainless.com',
       from: 'dev@stainless.com',

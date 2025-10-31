@@ -37,6 +37,15 @@ describe('resource emails', () => {
     const response = await client.emails.reply('emailId', {
       from: 'dev@stainless.com',
       html: 'html',
+      attachments: [
+        {
+          content: 'content',
+          file_name: 'file_name',
+          cid: 'cid',
+          content_type: 'content_type',
+          disposition: 'attachment',
+        },
+      ],
       bcc: 'dev@stainless.com',
       cc: 'dev@stainless.com',
       from_name: 'from_name',
@@ -72,6 +81,15 @@ describe('resource emails', () => {
       html: 'html',
       subject: 'subject',
       to: 'dev@stainless.com',
+      attachments: [
+        {
+          content: 'content',
+          file_name: 'file_name',
+          cid: 'cid',
+          content_type: 'content_type',
+          disposition: 'attachment',
+        },
+      ],
       bcc: 'dev@stainless.com',
       cc: 'dev@stainless.com',
       from_name: 'from_name',

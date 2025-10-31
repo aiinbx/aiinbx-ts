@@ -31,6 +31,31 @@ export const tool: Tool = {
       html: {
         type: 'string',
       },
+      attachments: {
+        type: 'array',
+        items: {
+          type: 'object',
+          properties: {
+            content: {
+              type: 'string',
+            },
+            file_name: {
+              type: 'string',
+            },
+            cid: {
+              type: 'string',
+            },
+            content_type: {
+              type: 'string',
+            },
+            disposition: {
+              type: 'string',
+              enum: ['attachment', 'inline'],
+            },
+          },
+          required: ['content', 'file_name'],
+        },
+      },
       bcc: {
         anyOf: [
           {
