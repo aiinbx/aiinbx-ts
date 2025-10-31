@@ -173,6 +173,8 @@ export namespace ThreadSearchResponse {
 export interface ThreadForwardParams {
   to: string | Array<string>;
 
+  attachments?: Array<ThreadForwardParams.Attachment>;
+
   bcc?: string | Array<string>;
 
   cc?: string | Array<string>;
@@ -186,6 +188,20 @@ export interface ThreadForwardParams {
   is_draft?: boolean;
 
   note?: string;
+}
+
+export namespace ThreadForwardParams {
+  export interface Attachment {
+    content: string;
+
+    file_name: string;
+
+    cid?: string;
+
+    content_type?: string;
+
+    disposition?: 'attachment' | 'inline';
+  }
 }
 
 export interface ThreadSearchParams {
