@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.12.1 (2025-10-31)
+
+Full Changelog: [v1.12.0...v1.12.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.12.0...v1.12.1)
+
+### Bug Fixes
+
+* **mcpb:** pin @anthropic-ai/mcpb version ([3baf043](https://github.com/aiinbx/aiinbx-ts/commit/3baf043c7c3962a1da05f43d3fc7c7738c5ce930))
+
 ## 1.12.0 (2025-10-15)
 
 Full Changelog: [v1.11.1...v1.12.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.11.1...v1.12.0)
