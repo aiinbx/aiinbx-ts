@@ -69,6 +69,8 @@ export interface DomainRetrieveResponse {
 
   domain: string;
 
+  isManagedDefault: boolean;
+
   status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED';
 
   updatedAt: string;
@@ -107,6 +109,8 @@ export namespace DomainListResponse {
     createdAt: string;
 
     domain: string;
+
+    isManagedDefault: boolean;
 
     status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED';
 
@@ -153,6 +157,8 @@ export namespace DomainVerifyResponse {
     createdAt: string;
 
     domain: string;
+
+    isManagedDefault: boolean;
 
     status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED';
 
