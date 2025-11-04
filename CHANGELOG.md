@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.14.0 (2025-11-04)
+
+Full Changelog: [v1.13.0...v1.14.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.13.0...v1.14.0)
+
+### Features
+
+* **api:** api update ([7893717](https://github.com/aiinbx/aiinbx-ts/commit/7893717e556dbd4a0fe028180845627d1a1998c4))
+
+
+### Chores
+
+* **internal:** grammar fix (it's -&gt; its) ([8dce0a1](https://github.com/aiinbx/aiinbx-ts/commit/8dce0a1bd2794dd6d3a7796f614979e662ab67bb))
+* use structured error when code execution tool errors ([b408eb7](https://github.com/aiinbx/aiinbx-ts/commit/b408eb77614f10692f5deb6554fcf3f325d045b3))
+
 ## 1.13.0 (2025-10-31)
 
 Full Changelog: [v1.12.1...v1.13.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.12.1...v1.13.0)
