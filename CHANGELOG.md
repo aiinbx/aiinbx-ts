@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.15.0 (2025-11-13)
+
+Full Changelog: [v1.14.0...v1.15.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.14.0...v1.15.0)
+
+### Features
+
+* **mcp:** enable optional code execution tool on http mcp servers ([2f85c93](https://github.com/aiinbx/aiinbx-ts/commit/2f85c93f959ffb2e76c227f41794e76139b0bbe4))
+
+
+### Bug Fixes
+
+* **mcp:** return tool execution error on jq failure ([ebad65f](https://github.com/aiinbx/aiinbx-ts/commit/ebad65ff9f4bd2ddd5f55acae12e1fdb64ce99e8))
+
+
+### Chores
+
+* **internal:** codegen related update ([1b6b1ae](https://github.com/aiinbx/aiinbx-ts/commit/1b6b1ae08b9a71cc1c425b932052ebcf72843e0e))
+* **internal:** codegen related update ([5c31c95](https://github.com/aiinbx/aiinbx-ts/commit/5c31c956d519dc401d49bf58c60ebc8a873259cf))
+* mcp code tool explicit error message when missing a run function ([dd39bd1](https://github.com/aiinbx/aiinbx-ts/commit/dd39bd1874f7945680147faf65eaa998e1510078))
+* **mcp:** add friendlier MCP code tool errors on incorrect method invocations ([5ce8ea1](https://github.com/aiinbx/aiinbx-ts/commit/5ce8ea14dbeec7bc2fb2f309a73d1fb4d6adc6b8))
+* **mcp:** add line numbers to code tool errors ([69c9d60](https://github.com/aiinbx/aiinbx-ts/commit/69c9d60249570a796fe05dd6db42ed213b79f42e))
+* **mcp:** clarify http auth error ([183f9fb](https://github.com/aiinbx/aiinbx-ts/commit/183f9fb88bd2700bf8f96b3833ef3a5fd0befa2e))
+
+
+### Documentation
+
+* **mcp:** add a README button for one-click add to Cursor ([c8aacdb](https://github.com/aiinbx/aiinbx-ts/commit/c8aacdb1add688c78c3af595e0a563d1ba2fc0a3))
+* **mcp:** add a README link to add server to VS Code or Claude Code ([722579a](https://github.com/aiinbx/aiinbx-ts/commit/722579a13f66a54ff4a17f61498f274680cf1686))
+
 ## 1.14.0 (2025-11-04)
 
 Full Changelog: [v1.13.0...v1.14.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.13.0...v1.14.0)
