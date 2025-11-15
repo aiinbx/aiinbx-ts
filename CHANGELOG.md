@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.16.0 (2025-11-15)
+
+Full Changelog: [v1.15.0...v1.16.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.15.0...v1.16.0)
+
+### Features
+
+* **api:** api update ([ea9bf67](https://github.com/aiinbx/aiinbx-ts/commit/ea9bf675cc8cc22b3c07b58ab9f3161b3155c055))
+
+
+### Chores
+
+* **mcp:** upgrade jq-web ([23c02d1](https://github.com/aiinbx/aiinbx-ts/commit/23c02d11f68ad9267f22c131c31f98374f9e648a))
+
 ## 1.15.0 (2025-11-13)
 
 Full Changelog: [v1.14.0...v1.15.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.14.0...v1.15.0)
