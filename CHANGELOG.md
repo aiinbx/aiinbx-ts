@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.45.0 (2025-11-18)
+
+Full Changelog: [v1.44.0...v1.45.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.44.0...v1.45.0)
+
+### Features
+
+* **api:** api update ([2950297](https://github.com/aiinbx/aiinbx-ts/commit/29502978769837611b45d6ea20278930a496292a))
+* **api:** api update ([fbe526d](https://github.com/aiinbx/aiinbx-ts/commit/fbe526d5699ed397b429984e65bc47078a8d1713))
+
 ## 1.44.0 (2025-11-18)
 
 Full Changelog: [v1.43.0...v1.44.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.43.0...v1.44.0)
