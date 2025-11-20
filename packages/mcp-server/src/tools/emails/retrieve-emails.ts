@@ -24,6 +24,7 @@ export const tool: Tool = {
     properties: {
       emailId: {
         type: 'string',
+        description: 'The unique identifier of the email',
       },
       jq_filter: {
         type: 'string',
