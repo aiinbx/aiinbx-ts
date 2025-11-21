@@ -1,6 +1,6 @@
 {
   "name": "aiinbx-mcp",
-  "version": "1.64.0",
+  "version": "1.65.0",
   "description": "The official MCP Server for the AI Inbx API",
   "author": "AI Inbx <>",
   "types": "dist/index.d.ts",
