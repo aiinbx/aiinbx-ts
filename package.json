@@ -1,6 +1,6 @@
 {
   "name": "aiinbx",
-  "version": "1.84.0",
+  "version": "1.85.0",
   "description": "The official TypeScript library for the AI Inbx API",
   "author": "AI Inbx <>",
   "types": "dist/index.d.ts",
