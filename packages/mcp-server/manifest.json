@@ -1,7 +1,7 @@
 {
   "dxt_version": "0.2",
   "name": "aiinbx-mcp",
-  "version": "1.100.0",
+  "version": "1.101.0",
   "description": "The official MCP Server for the AI Inbx API",
   "author": {
     "name": "AI Inbx"
