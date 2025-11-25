@@ -188,6 +188,10 @@ export interface ThreadForwardParams {
   is_draft?: boolean;
 
   note?: string;
+
+  track_clicks?: boolean;
+
+  track_opens?: boolean;
 }
 
 export namespace ThreadForwardParams {
