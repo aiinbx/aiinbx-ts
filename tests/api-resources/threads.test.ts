@@ -52,6 +52,8 @@ describe('resource threads', () => {
       includeAttachments: true,
       is_draft: true,
       note: 'note',
+      track_clicks: true,
+      track_opens: true,
     });
   });
 

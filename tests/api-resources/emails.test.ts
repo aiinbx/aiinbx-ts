@@ -54,6 +54,8 @@ describe('resource emails', () => {
       subject: 'subject',
       text: 'text',
       to: 'dev@stainless.com',
+      track_clicks: true,
+      track_opens: true,
     });
   });
 
@@ -99,6 +101,8 @@ describe('resource emails', () => {
       reply_to: 'dev@stainless.com',
       text: 'text',
       threadId: 'threadId',
+      track_clicks: true,
+      track_opens: true,
     });
   });
 });
