@@ -151,6 +151,10 @@ export interface EmailReplyParams {
   text?: string;
 
   to?: string | Array<string>;
+
+  track_clicks?: boolean;
+
+  track_opens?: boolean;
 }
 
 export namespace EmailReplyParams {
@@ -195,6 +199,10 @@ export interface EmailSendParams {
   text?: string;
 
   threadId?: string;
+
+  track_clicks?: boolean;
+
+  track_opens?: boolean;
 }
 
 export namespace EmailSendParams {

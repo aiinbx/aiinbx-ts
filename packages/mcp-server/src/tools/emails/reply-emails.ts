@@ -110,6 +110,12 @@ export const tool: Tool = {
           },
         ],
       },
+      track_clicks: {
+        type: 'boolean',
+      },
+      track_opens: {
+        type: 'boolean',
+      },
       jq_filter: {
         type: 'string',
         title: 'jq Filter',
