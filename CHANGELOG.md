@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.122.0 (2025-11-26)
+
+Full Changelog: [v1.121.0...v1.122.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.121.0...v1.122.0)
+
+### Features
+
+* **api:** api update ([4f09a2e](https://github.com/aiinbx/aiinbx-ts/commit/4f09a2e00db29d08e07ca7a53cf514c0fb20402a))
+* **mcp:** add detail field to docs search tool ([763e5e4](https://github.com/aiinbx/aiinbx-ts/commit/763e5e4befd81f6db81278abd6127b863e0c994f))
+
 ## 1.121.0 (2025-11-26)
 
 Full Changelog: [v1.120.0...v1.121.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.120.0...v1.121.0)
