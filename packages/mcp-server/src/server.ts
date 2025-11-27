@@ -34,7 +34,7 @@ export const newMcpServer = () =>
   new McpServer(
     {
       name: 'aiinbx_api',
-      version: '1.138.0',
+      version: '1.139.0',
     },
     { capabilities: { tools: {}, logging: {} } },
   );
