@@ -24,44 +24,56 @@ export const tool: Tool = {
     properties: {
       conversationState: {
         type: 'string',
+        description: 'Filter threads by conversation state',
         enum: ['awaiting_reply', 'needs_reply', 'active', 'stale'],
       },
       createdAfter: {
         type: 'string',
+        description: 'Filter threads created after this date',
       },
       createdBefore: {
         type: 'string',
+        description: 'Filter threads created before this date',
       },
       hasEmailFromAddress: {
         type: 'string',
+        description: 'Filter threads with emails from this address',
       },
       hasEmailToAddress: {
         type: 'string',
+        description: 'Filter threads with emails to this address',
       },
       hasParticipantEmails: {
         type: 'array',
+        description: 'Filter threads that include all of these email addresses as participants',
         items: {
           type: 'string',
         },
       },
       lastEmailAfter: {
         type: 'string',
+        description: 'Filter threads with last email after this date',
       },
       lastEmailBefore: {
         type: 'string',
+        description: 'Filter threads with last email before this date',
       },
       limit: {
         type: 'number',
+        description: 'Number of threads to return (1-100)',
       },
       offset: {
         type: 'number',
+        description: 'Number of threads to skip',
       },
       someEmailHasDirection: {
         type: 'string',
+        description: 'Filter threads containing emails with this direction',
         enum: ['INBOUND', 'OUTBOUND'],
       },
       someEmailHasStatus: {
         type: 'string',
+        description: 'Filter threads containing emails with this status',
         enum: [
           'DRAFT',
           'QUEUED',
@@ -78,17 +90,21 @@ export const tool: Tool = {
       },
       sortBy: {
         type: 'string',
+        description: 'Field to sort by',
         enum: ['createdAt', 'lastEmailAt', 'subject'],
       },
       sortOrder: {
         type: 'string',
+        description: 'Sort order',
         enum: ['asc', 'desc'],
       },
       staleThresholdDays: {
         type: 'number',
+        description: 'Days to consider a thread stale (used with conversationState=stale)',
       },
       subjectContains: {
         type: 'string',
+        description: 'Filter threads where subject contains this text',
       },
       jq_filter: {
         type: 'string',
