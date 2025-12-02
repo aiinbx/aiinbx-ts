@@ -45,7 +45,7 @@ export const handler = async (client: AIInbx, args: Record<string, unknown> | un
   try {
     return asTextContentResult(await maybeFilter(jq_filter, await client.domains.retrieve(domainId)));
   } catch (error) {
-    if (isJqError(error)) {
+    if (error instanceof AIInbx.APIError || isJqError(error)) {
       return asErrorResult(error.message);
     }
     throw error;
