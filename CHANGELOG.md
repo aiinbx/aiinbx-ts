@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.180.1 (2025-12-02)
+
+Full Changelog: [v1.180.0...v1.180.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.180.0...v1.180.1)
+
+### Bug Fixes
+
+* **mcp:** return tool execution error on api error ([43b75cf](https://github.com/aiinbx/aiinbx-ts/commit/43b75cf0b4e33383c38e0e4f8d2d97369ebf56e4))
+
+
+### Chores
+
+* **client:** fix logger property type ([c33798f](https://github.com/aiinbx/aiinbx-ts/commit/c33798f7139196b01d185abe861cbfd916c1c66d))
+
 ## 1.180.0 (2025-12-02)
 
 Full Changelog: [v1.179.0...v1.180.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.179.0...v1.180.0)
