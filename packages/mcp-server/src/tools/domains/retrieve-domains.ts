@@ -24,6 +24,7 @@ export const tool: Tool = {
     properties: {
       domainId: {
         type: 'string',
+        description: 'The unique identifier of the domain',
       },
       jq_filter: {
         type: 'string',
