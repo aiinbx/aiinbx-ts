@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Metadata, asTextContentResult } from 'aiinbx-mcp/tools/types';
+import { Metadata, asErrorResult, asTextContentResult } from 'aiinbx-mcp/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
 import AIInbx from 'aiinbx';
@@ -27,7 +27,14 @@ export const tool: Tool = {
 };
 
 export const handler = async (client: AIInbx, args: Record<string, unknown> | undefined) => {
-  return asTextContentResult(await client.meta.webhooksSchema());
+  try {
+    return asTextContentResult(await client.meta.webhooksSchema());
+  } catch (error) {
+    if (error instanceof AIInbx.APIError) {
+      return asErrorResult(error.message);
+    }
+    throw error;
+  }
 };
 
 export default { metadata, tool, handler };
