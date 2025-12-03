@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.197.0 (2025-12-03)
+
+Full Changelog: [v1.196.0...v1.197.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.196.0...v1.197.0)
+
+### Features
+
+* **api:** api update ([c558315](https://github.com/aiinbx/aiinbx-ts/commit/c558315fe52814572a0fb65dc0420d85ec88280b))
+
+
+### Chores
+
+* **internal:** upgrade eslint ([07638b1](https://github.com/aiinbx/aiinbx-ts/commit/07638b10e268f4ac45e4a037d3da897c99e273eb))
+
 ## 1.196.0 (2025-12-03)
 
 Full Changelog: [v1.195.0...v1.196.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.195.0...v1.196.0)
