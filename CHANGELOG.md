@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.203.0 (2025-12-06)
+
+Full Changelog: [v1.202.0...v1.203.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.202.0...v1.203.0)
+
+### Features
+
+* **mcp:** add typescript check to code execution tool ([f681fbb](https://github.com/aiinbx/aiinbx-ts/commit/f681fbbfca0f472bb865322851e383c77747b174))
+* **mcp:** handle code mode calls in the Stainless API ([cf86739](https://github.com/aiinbx/aiinbx-ts/commit/cf86739f1d3e9afb1e599841b2ddc1bc04a6c1f5))
+
+
+### Bug Fixes
+
+* **mcp:** return correct lines on typescript errors ([87d5069](https://github.com/aiinbx/aiinbx-ts/commit/87d5069699c9cadbb754ab4d0bce42e91c30a9c5))
+
+
+### Chores
+
+* use latest @modelcontextprotocol/sdk ([043d259](https://github.com/aiinbx/aiinbx-ts/commit/043d259229eb36607466d3e432a0ffa0cc5549ad))
+
 ## 1.202.0 (2025-12-04)
 
 Full Changelog: [v1.201.0...v1.202.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.201.0...v1.202.0)
