@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.203.1 (2025-12-06)
+
+Full Changelog: [v1.203.0...v1.203.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.203.0...v1.203.1)
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([6216249](https://github.com/aiinbx/aiinbx-ts/commit/6216249c5ee395a1741e9aa1e35bc18b9385e37c))
+
+
+### Chores
+
+* **internal:** codegen related update ([d7d023a](https://github.com/aiinbx/aiinbx-ts/commit/d7d023a033f294a16db648b1e4584a8054c3199c))
+
 ## 1.203.0 (2025-12-06)
 
 Full Changelog: [v1.202.0...v1.203.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.202.0...v1.203.0)
