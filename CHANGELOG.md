@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.204.0 (2025-12-07)
+
+Full Changelog: [v1.203.1...v1.204.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.203.1...v1.204.0)
+
+### Features
+
+* **api:** api update ([534f563](https://github.com/aiinbx/aiinbx-ts/commit/534f563355c883d51a6e99d989d33592ddb84611))
+
+
+### Chores
+
+* **internal:** codegen related update ([5cbd404](https://github.com/aiinbx/aiinbx-ts/commit/5cbd40453d06bd1937f16acc3bf12131ad0cced3))
+
 ## 1.203.1 (2025-12-06)
 
 Full Changelog: [v1.203.0...v1.203.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.203.0...v1.203.1)
