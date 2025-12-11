@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.214.1 (2025-12-11)
+
+Full Changelog: [v1.214.0...v1.214.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.214.0...v1.214.1)
+
+### Bug Fixes
+
+* **mcp:** add client instantiation options to code tool ([e03ef2f](https://github.com/aiinbx/aiinbx-ts/commit/e03ef2f4d9aa899c7da0a1ffd178f161f5a57277))
+
+
+### Chores
+
+* **mcp:** update lockfile ([2f25ace](https://github.com/aiinbx/aiinbx-ts/commit/2f25acef183f7d85d05c75cd295b687b82590a62))
+
 ## 1.214.0 (2025-12-09)
 
 Full Changelog: [v1.213.0...v1.214.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.213.0...v1.214.0)
