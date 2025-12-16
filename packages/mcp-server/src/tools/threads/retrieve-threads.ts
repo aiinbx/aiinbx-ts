@@ -24,6 +24,7 @@ export const tool: Tool = {
     properties: {
       threadId: {
         type: 'string',
+        description: 'The unique identifier of the thread',
       },
       jq_filter: {
         type: 'string',
