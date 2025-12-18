@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.228.1 (2025-12-18)
+
+Full Changelog: [v1.228.0...v1.228.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.228.0...v1.228.1)
+
+### Bug Fixes
+
+* **mcp:** pass base url to code tool ([259ba66](https://github.com/aiinbx/aiinbx-ts/commit/259ba66dcad2aa083a0cd4ba97275ada6b24a090))
+
 ## 1.228.0 (2025-12-17)
 
 Full Changelog: [v1.227.0...v1.228.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.227.0...v1.228.0)
