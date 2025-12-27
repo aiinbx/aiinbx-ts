@@ -1,5 +1,29 @@
 # Changelog
 
+## 2.0.0 (2025-12-27)
+
+Full Changelog: [v1.229.0...v2.0.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.229.0...v2.0.0)
+
+### ⚠ BREAKING CHANGES
+
+* **mcp:** remove deprecated tool schemes
+* **mcp:** **Migration:** To migrate, simply modify the command used to invoke the MCP server. Currently, the only supported tool scheme is code mode. Now, starting the server with just `node /path/to/mcp/server` or `npx package-name` will invoke code tools: changing your command to one of these is likely all you will need to do.
+
+### Features
+
+* **api:** api update ([540c29c](https://github.com/aiinbx/aiinbx-ts/commit/540c29c21d5a91804ca06717e0380c07cb5066af))
+* **api:** api update ([0a60ee8](https://github.com/aiinbx/aiinbx-ts/commit/0a60ee80d3e1071e54f76be63f0925b770015b0f))
+* **api:** api update ([e041fbb](https://github.com/aiinbx/aiinbx-ts/commit/e041fbbff3c716f469f008d6010b96bf7daa21df))
+* **api:** api update ([ecca3af](https://github.com/aiinbx/aiinbx-ts/commit/ecca3aff4683de6d119dc98af5c0b6b0888ec6f9))
+* **api:** api update ([895ef4d](https://github.com/aiinbx/aiinbx-ts/commit/895ef4d75b672bd629f75365fae2ae25406d7004))
+* **api:** api update ([285568f](https://github.com/aiinbx/aiinbx-ts/commit/285568f846b8101a47b67b1aebda2b4d9642708a))
+* **api:** api update ([338baf9](https://github.com/aiinbx/aiinbx-ts/commit/338baf9600192709b83c2876ef94082e9875d9c6))
+
+
+### Chores
+
+* **mcp:** remove deprecated tool schemes ([0e086c1](https://github.com/aiinbx/aiinbx-ts/commit/0e086c137bd38e2ecace3ec18829a1caa2e660ab))
+
 ## 1.229.0 (2025-12-18)
 
 Full Changelog: [v1.228.1...v1.229.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.228.1...v1.229.0)
