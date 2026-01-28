@@ -2,7 +2,7 @@
 
 import { McpTool, Metadata, ToolCallResult, asErrorResult, asTextContentResult } from './types';
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import { readEnv, readEnvOrError } from './server';
+import { readEnv, requireValue } from './server';
 import { WorkerInput, WorkerOutput } from './code-tool-types';
 import { AIInbx } from 'aiinbx';
 
@@ -71,7 +71,10 @@ export function codeTool(): McpTool {
         ...(stainlessAPIKey && { Authorization: stainlessAPIKey }),
         'Content-Type': 'application/json',
         client_envs: JSON.stringify({
-          AI_INBX_API_KEY: readEnvOrError('AI_INBX_API_KEY') ?? client.apiKey ?? undefined,
+          AI_INBX_API_KEY: requireValue(
+            readEnv('AI_INBX_API_KEY') ?? client.apiKey,
+            'set AI_INBX_API_KEY environment variable or provide apiKey client option',
+          ),
           AI_INBX_BASE_URL: readEnv('AI_INBX_BASE_URL') ?? client.baseURL ?? undefined,
         }),
       },
