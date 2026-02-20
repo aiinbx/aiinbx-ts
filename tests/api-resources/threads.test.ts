@@ -8,7 +8,7 @@ const client = new AIInbx({
 });
 
 describe('resource threads', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.threads.retrieve('threadId');
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource threads', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('forward: only required params', async () => {
     const responsePromise = client.threads.forward('threadId', { to: 'dev@stainless.com' });
     const rawResponse = await responsePromise.asResponse();
@@ -32,7 +32,7 @@ describe('resource threads', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('forward: required and optional params', async () => {
     const response = await client.threads.forward('threadId', {
       to: 'dev@stainless.com',
@@ -57,7 +57,7 @@ describe('resource threads', () => {
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('search', async () => {
     const responsePromise = client.threads.search({});
     const rawResponse = await responsePromise.asResponse();

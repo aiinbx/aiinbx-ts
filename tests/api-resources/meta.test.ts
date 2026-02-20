@@ -8,7 +8,7 @@ const client = new AIInbx({
 });
 
 describe('resource meta', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('webhooksSchema', async () => {
     const responsePromise = client.meta.webhooksSchema();
     const rawResponse = await responsePromise.asResponse();

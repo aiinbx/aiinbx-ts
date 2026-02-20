@@ -2,16 +2,17 @@
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
-
+import { ClientOptions } from 'aiinbx';
 import express from 'express';
-import { fromError } from 'zod-validation-error/v3';
-import { McpOptions, parseQueryOptions } from './options';
-import { ClientOptions, initMcpServer, newMcpServer } from './server';
-import { parseAuthHeaders } from './headers';
+import morgan from 'morgan';
+import morganBody from 'morgan-body';
+import { getStainlessApiKey, parseClientAuthHeaders } from './auth';
+import { McpOptions } from './options';
+import { initMcpServer, newMcpServer } from './server';
 
-const newServer = ({
+const newServer = async ({
   clientOptions,
-  mcpOptions: defaultMcpOptions,
+  mcpOptions,
   req,
   res,
 }: {
@@ -19,43 +20,21 @@ const newServer = ({
   mcpOptions: McpOptions;
   req: express.Request;
   res: express.Response;
-}): McpServer | null => {
-  const server = newMcpServer();
+}): Promise<McpServer | null> => {
+  const stainlessApiKey = getStainlessApiKey(req, mcpOptions);
+  const server = await newMcpServer(stainlessApiKey);
 
-  let mcpOptions: McpOptions;
-  try {
-    mcpOptions = parseQueryOptions(defaultMcpOptions, req.query);
-  } catch (error) {
-    res.status(400).json({
-      jsonrpc: '2.0',
-      error: {
-        code: -32000,
-        message: `Invalid request: ${fromError(error)}`,
-      },
-    });
-    return null;
-  }
+  const authOptions = parseClientAuthHeaders(req, false);
 
-  try {
-    const authOptions = parseAuthHeaders(req);
-    initMcpServer({
-      server: server,
-      clientOptions: {
-        ...clientOptions,
-        ...authOptions,
-      },
-      mcpOptions,
-    });
-  } catch (error) {
-    res.status(401).json({
-      jsonrpc: '2.0',
-      error: {
-        code: -32000,
-        message: `Unauthorized: ${error instanceof Error ? error.message : error}`,
-      },
-    });
-    return null;
-  }
+  await initMcpServer({
+    server: server,
+    mcpOptions: mcpOptions,
+    clientOptions: {
+      ...clientOptions,
+      ...authOptions,
+    },
+    stainlessApiKey: stainlessApiKey,
+  });
 
   return server;
 };
@@ -63,14 +42,11 @@ const newServer = ({
 const post =
   (options: { clientOptions: ClientOptions; mcpOptions: McpOptions }) =>
   async (req: express.Request, res: express.Response) => {
-    const server = newServer({ ...options, req, res });
+    const server = await newServer({ ...options, req, res });
     // If we return null, we already set the authorization error.
     if (server === null) return;
-    const transport = new StreamableHTTPServerTransport({
-      // Stateless server
-      sessionIdGenerator: undefined,
-    });
-    await server.connect(transport);
+    const transport = new StreamableHTTPServerTransport();
+    await server.connect(transport as any);
     await transport.handleRequest(req, res, req.body);
   };
 
@@ -96,15 +72,31 @@ const del = async (req: express.Request, res: express.Response) => {
 
 export const streamableHTTPApp = ({
   clientOptions = {},
-  mcpOptions = {},
+  mcpOptions,
+  debug,
 }: {
   clientOptions?: ClientOptions;
-  mcpOptions?: McpOptions;
+  mcpOptions: McpOptions;
+  debug: boolean;
 }): express.Express => {
   const app = express();
   app.set('query parser', 'extended');
   app.use(express.json());
 
+  if (debug) {
+    morganBody(app, {
+      logAllReqHeader: true,
+      logAllResHeader: true,
+      logRequestBody: true,
+      logResponseBody: true,
+    });
+  } else {
+    app.use(morgan('combined'));
+  }
+
+  app.get('/health', async (req: express.Request, res: express.Response) => {
+    res.status(200).send('OK');
+  });
   app.get('/', get);
   app.post('/', post({ clientOptions, mcpOptions }));
   app.delete('/', del);
@@ -112,8 +104,16 @@ export const streamableHTTPApp = ({
   return app;
 };
 
-export const launchStreamableHTTPServer = async (options: McpOptions, port: number | string | undefined) => {
-  const app = streamableHTTPApp({ mcpOptions: options });
+export const launchStreamableHTTPServer = async ({
+  mcpOptions,
+  debug,
+  port,
+}: {
+  mcpOptions: McpOptions;
+  debug: boolean;
+  port: number | string | undefined;
+}) => {
+  const app = streamableHTTPApp({ mcpOptions, debug });
   const server = app.listen(port);
   const address = server.address();
 
