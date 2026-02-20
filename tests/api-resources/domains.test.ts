@@ -8,7 +8,7 @@ const client = new AIInbx({
 });
 
 describe('resource domains', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: only required params', async () => {
     const responsePromise = client.domains.create({
       domain: 'sfN2.l.iJR-BU.u9JV9.a.m.o2D-4b-Jd.0Z-kX.L.n.S.f.ukBXb',
@@ -22,14 +22,14 @@ describe('resource domains', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.domains.create({
       domain: 'sfN2.l.iJR-BU.u9JV9.a.m.o2D-4b-Jd.0Z-kX.L.n.S.f.ukBXb',
     });
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('retrieve', async () => {
     const responsePromise = client.domains.retrieve('domainId');
     const rawResponse = await responsePromise.asResponse();
@@ -41,7 +41,7 @@ describe('resource domains', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('list', async () => {
     const responsePromise = client.domains.list();
     const rawResponse = await responsePromise.asResponse();
@@ -53,7 +53,7 @@ describe('resource domains', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('delete', async () => {
     const responsePromise = client.domains.delete('domainId');
     const rawResponse = await responsePromise.asResponse();
@@ -65,7 +65,7 @@ describe('resource domains', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('verify', async () => {
     const responsePromise = client.domains.verify('domainId');
     const rawResponse = await responsePromise.asResponse();
