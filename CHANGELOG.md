@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.231.0 (2026-02-21)
+
+Full Changelog: [v1.230.0...v1.231.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.230.0...v1.231.0)
+
+### Features
+
+* **api:** api update ([1ff884a](https://github.com/aiinbx/aiinbx-ts/commit/1ff884adeeadee07119634169e36ebff49ddcd49))
+* **api:** api update ([30590b8](https://github.com/aiinbx/aiinbx-ts/commit/30590b8ecb63456977126182b4e26c38e5ef67e7))
+* **api:** api update ([fb11f37](https://github.com/aiinbx/aiinbx-ts/commit/fb11f37b5eb450e578d293742f53a90bf5d50dbf))
+* **api:** api update ([f8b8b7f](https://github.com/aiinbx/aiinbx-ts/commit/f8b8b7f91eb9b68102f419bb6ef5b233c90aef66))
+* **api:** api update ([50e764a](https://github.com/aiinbx/aiinbx-ts/commit/50e764af1d1bd74590313e3063afd22464b886c6))
+* **api:** api update ([f483c83](https://github.com/aiinbx/aiinbx-ts/commit/f483c830d48b446f30cd3fd6d3f0de2c503354fa))
+* **api:** api update ([34e45ba](https://github.com/aiinbx/aiinbx-ts/commit/34e45ba5084fef59633e1c15d803cb5e2a5f83bc))
+
 ## 1.230.0 (2026-02-20)
 
 Full Changelog: [v1.229.0...v1.230.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.229.0...v1.230.0)
