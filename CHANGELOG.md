@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.250.1 (2026-02-24)
+
+Full Changelog: [v1.250.0...v1.250.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.250.0...v1.250.1)
+
+### Bug Fixes
+
+* **docs/contributing:** correct pnpm link command ([aa27748](https://github.com/aiinbx/aiinbx-ts/commit/aa2774881fe01797eb63686680ee3d9a04b83b32))
+
 ## 1.250.0 (2026-02-24)
 
 Full Changelog: [v1.249.0...v1.250.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.249.0...v1.250.0)
