@@ -60,7 +60,7 @@ $ yarn link aiinbx
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global aiinbx
+$ pnpm link --global aiinbx
 ```
 
 ## Running tests
