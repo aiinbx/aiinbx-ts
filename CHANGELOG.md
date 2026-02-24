@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.251.0 (2026-02-24)
+
+Full Changelog: [v1.250.1...v1.251.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.250.1...v1.251.0)
+
+### Features
+
+* **api:** api update ([ac0c500](https://github.com/aiinbx/aiinbx-ts/commit/ac0c50044c917a6ae316cae2f7b0209e9851a61a))
+
+
+### Chores
+
+* **internal:** upgrade @modelcontextprotocol/sdk and hono ([cdf7ef3](https://github.com/aiinbx/aiinbx-ts/commit/cdf7ef321568de44aa9435e6eefa68ef27f7ee2d))
+
 ## 1.250.1 (2026-02-24)
 
 Full Changelog: [v1.250.0...v1.250.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.250.0...v1.250.1)
