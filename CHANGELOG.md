@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.256.0 (2026-02-25)
+
+Full Changelog: [v1.255.0...v1.256.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.255.0...v1.256.0)
+
+### Features
+
+* **api:** api update ([c761f3e](https://github.com/aiinbx/aiinbx-ts/commit/c761f3e83f256732bb69e1d5eb1b8135dba10e40))
+
+
+### Chores
+
+* **internal:** make MCP code execution location configurable via a flag ([b0bb71f](https://github.com/aiinbx/aiinbx-ts/commit/b0bb71f84c095194ff43ed2bc8fccaa9c0c97979))
+
 ## 1.255.0 (2026-02-24)
 
 Full Changelog: [v1.254.0...v1.255.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.254.0...v1.255.0)
