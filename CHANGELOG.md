@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.263.0 (2026-02-27)
+
+Full Changelog: [v1.262.0...v1.263.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.262.0...v1.263.0)
+
+### Features
+
+* **mcp:** add an option to disable code tool ([4535405](https://github.com/aiinbx/aiinbx-ts/commit/45354057b2520c55145e99394bc606bff7c5d925))
+
+
+### Chores
+
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([3c15896](https://github.com/aiinbx/aiinbx-ts/commit/3c15896979f0c64b72357d7a5127e6631fb3576d))
+* **internal:** fix MCP Dockerfiles so they can be built without buildkit ([c578097](https://github.com/aiinbx/aiinbx-ts/commit/c5780970aaa32bce75f296107eb07b1696c1e75c))
+* **internal:** move stringifyQuery implementation to internal function ([ab0d5df](https://github.com/aiinbx/aiinbx-ts/commit/ab0d5df085e441307317ff5844714a095d15fb1b))
+
 ## 1.262.0 (2026-02-26)
 
 Full Changelog: [v1.261.0...v1.262.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.261.0...v1.262.0)
