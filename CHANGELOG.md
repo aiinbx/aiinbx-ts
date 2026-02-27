@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.263.1 (2026-02-27)
+
+Full Changelog: [v1.263.0...v1.263.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.263.0...v1.263.1)
+
+### Bug Fixes
+
+* **mcp:** update prompt ([82de711](https://github.com/aiinbx/aiinbx-ts/commit/82de71198a2e6ab76a04031e548d941eccd2a692))
+
 ## 1.263.0 (2026-02-27)
 
 Full Changelog: [v1.262.0...v1.263.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.262.0...v1.263.0)
