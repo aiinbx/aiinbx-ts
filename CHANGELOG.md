@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.293.0 (2026-03-03)
+
+Full Changelog: [v1.292.0...v1.293.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.292.0...v1.293.0)
+
+### Features
+
+* **api:** api update ([b2ea8bf](https://github.com/aiinbx/aiinbx-ts/commit/b2ea8bfd9319b0d8b660a84bb98de81397490f31))
+
+
+### Chores
+
+* **internal:** codegen related update ([be6d831](https://github.com/aiinbx/aiinbx-ts/commit/be6d831e09b5943942688f986bf6c240858d6149))
+* **mcp-server:** return access instructions for 404 without API key ([681b3be](https://github.com/aiinbx/aiinbx-ts/commit/681b3be1296888aa003ecd41241a22dcce836e8b))
+
 ## 1.292.0 (2026-03-03)
 
 Full Changelog: [v1.291.0...v1.292.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.291.0...v1.292.0)
