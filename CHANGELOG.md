@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.301.0 (2026-03-04)
+
+Full Changelog: [v1.300.0...v1.301.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.300.0...v1.301.0)
+
+### Features
+
+* **api:** api update ([20f1cd0](https://github.com/aiinbx/aiinbx-ts/commit/20f1cd091e6f82b4f17132220dcfe558bf303c6a))
+
+
+### Chores
+
+* **internal:** use x-stainless-mcp-client-envs header for MCP remote code tool calls ([3c6cc50](https://github.com/aiinbx/aiinbx-ts/commit/3c6cc50a0e21ea80c295b50edea05904012ae922))
+
 ## 1.300.0 (2026-03-04)
 
 Full Changelog: [v1.299.0...v1.300.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.299.0...v1.300.0)
