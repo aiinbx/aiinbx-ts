@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.309.0 (2026-03-06)
+
+Full Changelog: [v1.308.0...v1.309.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.308.0...v1.309.0)
+
+### Features
+
+* **api:** api update ([d4c9df2](https://github.com/aiinbx/aiinbx-ts/commit/d4c9df2aa6a8f0c61818ed864adf9c2e3b420671))
+
+
+### Chores
+
+* **internal:** codegen related update ([1c8a538](https://github.com/aiinbx/aiinbx-ts/commit/1c8a5380d6a2959715a7b26711432b2b48e3e282))
+
 ## 1.308.0 (2026-03-05)
 
 Full Changelog: [v1.307.0...v1.308.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.307.0...v1.308.0)
