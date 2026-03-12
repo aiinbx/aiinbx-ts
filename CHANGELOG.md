@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.321.0 (2026-03-12)
+
+Full Changelog: [v1.320.0...v1.321.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.320.0...v1.321.0)
+
+### Features
+
+* **api:** api update ([39f7791](https://github.com/aiinbx/aiinbx-ts/commit/39f7791662ce6585ed6e1486c6fcbdd52babaca1))
+
+
+### Chores
+
+* **internal:** bump @modelcontextprotocol/sdk, @hono/node-server, and minimatch ([c0d3b01](https://github.com/aiinbx/aiinbx-ts/commit/c0d3b0161ad70480028db8f602cd7e83fac81e3e))
+
 ## 1.320.0 (2026-03-12)
 
 Full Changelog: [v1.319.0...v1.320.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.319.0...v1.320.0)
