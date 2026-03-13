@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.335.0 (2026-03-13)
+
+Full Changelog: [v1.334.0...v1.335.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.334.0...v1.335.0)
+
+### Features
+
+* **api:** api update ([411be00](https://github.com/aiinbx/aiinbx-ts/commit/411be00091c0000834441c3cf0335797521649b7))
+
 ## 1.334.0 (2026-03-13)
 
 Full Changelog: [v1.333.0...v1.334.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.333.0...v1.334.0)
