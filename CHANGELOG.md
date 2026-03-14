@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.339.0 (2026-03-14)
+
+Full Changelog: [v1.338.0...v1.339.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.338.0...v1.339.0)
+
+### Features
+
+* **api:** api update ([20b7f20](https://github.com/aiinbx/aiinbx-ts/commit/20b7f200d3f54d860210e8706103a04dde7db2eb))
+
+
+### Chores
+
+* **internal:** make generated MCP servers compatible with Cloudflare worker environments ([cbc9ff3](https://github.com/aiinbx/aiinbx-ts/commit/cbc9ff3b473a572b9ca0777c112d578a4acf3d43))
+* **internal:** support x-stainless-mcp-client-envs header in MCP servers ([ef8e710](https://github.com/aiinbx/aiinbx-ts/commit/ef8e710a2c9037f5b152418addb759e145229bfb))
+
 ## 1.338.0 (2026-03-14)
 
 Full Changelog: [v1.337.0...v1.338.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.337.0...v1.338.0)
