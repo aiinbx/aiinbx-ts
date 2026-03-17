@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.351.0 (2026-03-17)
+
+Full Changelog: [v1.350.0...v1.351.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.350.0...v1.351.0)
+
+### Features
+
+* **api:** api update ([7cebe90](https://github.com/aiinbx/aiinbx-ts/commit/7cebe90946808da2d7c800cc1c34136fe4c22473))
+
+
+### Chores
+
+* **internal:** support x-stainless-mcp-client-permissions headers in MCP servers ([14aed6a](https://github.com/aiinbx/aiinbx-ts/commit/14aed6aa5878b0c64167bf154ae8b2ac5d2b13ff))
+* **internal:** tweak CI branches ([a8835b0](https://github.com/aiinbx/aiinbx-ts/commit/a8835b0da6ca14e8c46a43e8c5b83db28b9960b9))
+
 ## 1.350.0 (2026-03-16)
 
 Full Changelog: [v1.349.0...v1.350.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.349.0...v1.350.0)
