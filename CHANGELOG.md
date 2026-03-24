@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.403.0 (2026-03-24)
+
+Full Changelog: [v1.402.0...v1.403.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.402.0...v1.403.0)
+
+### Features
+
+* **api:** api update ([06c0e00](https://github.com/aiinbx/aiinbx-ts/commit/06c0e00f8bae69a44a0d9aead9db8d802fd0adce))
+
+
+### Chores
+
+* **internal:** fix MCP server TS errors that occur with required client options ([827257e](https://github.com/aiinbx/aiinbx-ts/commit/827257e4631f4c4593c968a109e422b408671370))
+* **internal:** update gitignore ([030ab71](https://github.com/aiinbx/aiinbx-ts/commit/030ab71bfcfd32bd70bbf09a562214eae88d1c6b))
+
 ## 1.402.0 (2026-03-24)
 
 Full Changelog: [v1.401.0...v1.402.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.401.0...v1.402.0)
