@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.409.0 (2026-03-25)
+
+Full Changelog: [v1.408.0...v1.409.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.408.0...v1.409.0)
+
+### Features
+
+* **api:** api update ([1b9223f](https://github.com/aiinbx/aiinbx-ts/commit/1b9223ffbe87f4ced31bf7ecfe5a99ba7f3f9630))
+
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([d017e31](https://github.com/aiinbx/aiinbx-ts/commit/d017e31f66265200ca01877a2d5c79bd1e1f8f49))
+
 ## 1.408.0 (2026-03-24)
 
 Full Changelog: [v1.407.0...v1.408.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.407.0...v1.408.0)
