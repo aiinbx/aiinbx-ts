@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.423.0 (2026-03-27)
+
+Full Changelog: [v1.422.0...v1.423.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.422.0...v1.423.0)
+
+### Features
+
+* **api:** api update ([ff935d4](https://github.com/aiinbx/aiinbx-ts/commit/ff935d46a474fea473ab9f45d2a6c313376f7634))
+
+
+### Chores
+
+* **internal:** support custom-instructions-path flag in MCP servers ([82fab26](https://github.com/aiinbx/aiinbx-ts/commit/82fab26ea10465c86c5a0097e44ab836c0e59148))
+
 ## 1.422.0 (2026-03-27)
 
 Full Changelog: [v1.421.0...v1.422.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.421.0...v1.422.0)
