@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.434.0 (2026-03-28)
+
+Full Changelog: [v1.433.0...v1.434.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.433.0...v1.434.0)
+
+### Features
+
+* **api:** api update ([ac22508](https://github.com/aiinbx/aiinbx-ts/commit/ac2250879604d1d04556135ef5287b85df0af7c4))
+
+
+### Chores
+
+* **ci:** escape input path in publish-npm workflow ([bdf4e74](https://github.com/aiinbx/aiinbx-ts/commit/bdf4e741e6e60190c259c318818353bb7948cba2))
+* **internal:** support local docs search in MCP servers ([0ead11f](https://github.com/aiinbx/aiinbx-ts/commit/0ead11f34025e31f293d48566fd18368b26fe245))
+
 ## 1.433.0 (2026-03-28)
 
 Full Changelog: [v1.432.0...v1.433.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.432.0...v1.433.0)
