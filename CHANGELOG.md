@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.444.0 (2026-03-31)
+
+Full Changelog: [v1.443.0...v1.444.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.443.0...v1.444.0)
+
+### Features
+
+* **api:** api update ([cb444ed](https://github.com/aiinbx/aiinbx-ts/commit/cb444ed49c1ce9156b12e47cb5b8d7598a945840))
+* **api:** api update ([4115920](https://github.com/aiinbx/aiinbx-ts/commit/41159201ffc98b475aa79b8721724b2c6ce71195))
+* **api:** api update ([7c44ad9](https://github.com/aiinbx/aiinbx-ts/commit/7c44ad981233ad3d047a487c846e063d4b15a943))
+* **api:** api update ([ddd203e](https://github.com/aiinbx/aiinbx-ts/commit/ddd203e836a7bc96e460599a20fc2aec6e274de2))
+* **api:** api update ([08dddd1](https://github.com/aiinbx/aiinbx-ts/commit/08dddd1356e65f77853106999e0ee130633d0ad0))
+* **api:** api update ([859b4b1](https://github.com/aiinbx/aiinbx-ts/commit/859b4b1081c4fd20e8dfdc03318d7ee0e7f6d97b))
+* **api:** api update ([8100872](https://github.com/aiinbx/aiinbx-ts/commit/8100872b7d459f26a15e1462574744394c7d8d30))
+* **api:** api update ([c1177e7](https://github.com/aiinbx/aiinbx-ts/commit/c1177e7ba931e3617798d869fb47b116f6ca551b))
+* **api:** api update ([2d8757e](https://github.com/aiinbx/aiinbx-ts/commit/2d8757e6875fdb48c72bcd0b11d6384dfeaf5b77))
+* **api:** api update ([24d1c52](https://github.com/aiinbx/aiinbx-ts/commit/24d1c52e8cc95167ea10fe78eee5da12329119bd))
+* **api:** api update ([b7e417e](https://github.com/aiinbx/aiinbx-ts/commit/b7e417e62b7095dfba47d5dacd8537ef0cfec188))
+* **api:** api update ([558eba2](https://github.com/aiinbx/aiinbx-ts/commit/558eba2c84c19798e7629d46a5e9c15361e444c5))
+* **api:** api update ([f4cbce9](https://github.com/aiinbx/aiinbx-ts/commit/f4cbce9626570b447113be61fb07c278ffbd8b89))
+* **api:** api update ([eed4dea](https://github.com/aiinbx/aiinbx-ts/commit/eed4deab2335f5be5eb04f8ce90cb45508248806))
+* **api:** api update ([d1ba5b9](https://github.com/aiinbx/aiinbx-ts/commit/d1ba5b9d20280af03bc89be96b260ebb49eaa9b7))
+* **api:** api update ([af8bbd8](https://github.com/aiinbx/aiinbx-ts/commit/af8bbd80d639a1e815b3598961de54e1a76126db))
+* **api:** api update ([70e1c33](https://github.com/aiinbx/aiinbx-ts/commit/70e1c33ce26a36c9137f9ec1376afd3e64dc1ed9))
+* **api:** api update ([9529293](https://github.com/aiinbx/aiinbx-ts/commit/952929343d957b4c7b31ef1f352e9df0d7f52bd8))
+
+
+### Chores
+
+* **internal:** improve local docs search for MCP servers ([fa4bef5](https://github.com/aiinbx/aiinbx-ts/commit/fa4bef5d0e70000cfc7e671631ca4e006d237140))
+* **mcp-server:** add support for session id, forward client info ([5e436a2](https://github.com/aiinbx/aiinbx-ts/commit/5e436a2a9e7564dadb450cc60d7a60292ffa4bfd))
+
 ## 1.443.0 (2026-03-29)
 
 Full Changelog: [v1.442.0...v1.443.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.442.0...v1.443.0)
