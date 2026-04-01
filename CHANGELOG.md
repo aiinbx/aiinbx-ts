@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.448.0 (2026-04-01)
+
+Full Changelog: [v1.447.0...v1.448.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.447.0...v1.448.0)
+
+### Features
+
+* **api:** api update ([3f5d82b](https://github.com/aiinbx/aiinbx-ts/commit/3f5d82b13b6ca01bdbcd66bf1482e7672964e572))
+
+
+### Chores
+
+* **internal:** improve local docs search for MCP servers ([a03a7de](https://github.com/aiinbx/aiinbx-ts/commit/a03a7deeb14fe4a04f4c443ac0917bdf6dce42c9))
+
 ## 1.447.0 (2026-03-31)
 
 Full Changelog: [v1.446.0...v1.447.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.446.0...v1.447.0)
