@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.452.0 (2026-04-02)
+
+Full Changelog: [v1.451.0...v1.452.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.451.0...v1.452.0)
+
+### Features
+
+* **api:** api update ([6eadf0e](https://github.com/aiinbx/aiinbx-ts/commit/6eadf0e9bee0dce5bde494ea789266a4b20e8a99))
+
+
+### Chores
+
+* **internal:** support type annotations when running MCP in local execution mode ([0d0057e](https://github.com/aiinbx/aiinbx-ts/commit/0d0057e3c747f8536e3b02f78e756e3004fabdfd))
+
 ## 1.451.0 (2026-04-01)
 
 Full Changelog: [v1.450.0...v1.451.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.450.0...v1.451.0)
