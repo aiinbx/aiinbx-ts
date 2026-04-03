@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.459.0 (2026-04-03)
+
+Full Changelog: [v1.458.0...v1.459.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.458.0...v1.459.0)
+
+### Features
+
+* **api:** api update ([5dbf6ec](https://github.com/aiinbx/aiinbx-ts/commit/5dbf6ec5f48c743a84b7c1d8aa1787d92663eae2))
+
+
+### Chores
+
+* **internal:** fix MCP docker image builds in yarn projects ([f6398dd](https://github.com/aiinbx/aiinbx-ts/commit/f6398dd0d5efe52f465393f7242184e5ba7f360d))
+* **internal:** use link instead of file in MCP server package.json files ([5024ba8](https://github.com/aiinbx/aiinbx-ts/commit/5024ba83702725b268cf804e8db88bd408b5579d))
+* **mcp-server:** log client info ([059f8af](https://github.com/aiinbx/aiinbx-ts/commit/059f8af7cc60393ca558c32c394d974a3f207881))
+
 ## 1.458.0 (2026-04-02)
 
 Full Changelog: [v1.457.0...v1.458.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.457.0...v1.458.0)
