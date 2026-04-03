@@ -130,91 +130,216 @@ export interface EmailSendResponse {
 }
 
 export interface EmailReplyParams {
+  /**
+   * Sender email address (must use a verified domain)
+   */
   from: string;
 
+  /**
+   * HTML body of the reply
+   */
   html: string;
 
+  /**
+   * Optional list of attachments to include with this reply (e.g., inline images via
+   * cid).
+   */
   attachments?: Array<EmailReplyParams.Attachment>;
 
+  /**
+   * Optional BCC recipients
+   */
   bcc?: string | Array<string>;
 
+  /**
+   * Optional CC recipients
+   */
   cc?: string | Array<string>;
 
+  /**
+   * Optional display name for the sender
+   */
   from_name?: string;
 
+  /**
+   * If true, the email is a draft
+   */
   is_draft?: boolean;
 
+  /**
+   * If true, includes all original recipients (to/cc) in the reply
+   */
   reply_all?: boolean;
 
+  /**
+   * Email subject. If not provided, uses "Re: " + original subject
+   */
   subject?: string;
 
+  /**
+   * Optional plain-text body of the reply
+   */
   text?: string;
 
+  /**
+   * Override recipient addresses. If not provided, replies to the original sender
+   * and any reply-to addresses.
+   */
   to?: string | Array<string>;
 
+  /**
+   * Enable click tracking for this email. Overrides API key and org defaults.
+   */
   track_clicks?: boolean;
 
+  /**
+   * Enable open tracking for this email. Overrides API key and org defaults.
+   */
   track_opens?: boolean;
 }
 
 export namespace EmailReplyParams {
+  /**
+   * Attachment input; provide content as base64 or data URL
+   */
   export interface Attachment {
+    /**
+     * Required: base64 string or data URL for the file content
+     */
     content: string;
 
+    /**
+     * Original file name to display
+     */
     file_name: string;
 
+    /**
+     * Content-ID for inline images referenced via cid:
+     */
     cid?: string;
 
+    /**
+     * MIME type when using raw base64 (ignored for data URLs)
+     */
     content_type?: string;
 
+    /**
+     * How the attachment should be presented
+     */
     disposition?: 'attachment' | 'inline';
   }
 }
 
 export interface EmailSendParams {
+  /**
+   * Sender email address (must use a verified domain)
+   */
   from: string;
 
+  /**
+   * HTML body of the email
+   */
   html: string;
 
+  /**
+   * Email subject
+   */
   subject: string;
 
+  /**
+   * Recipient email address or list of addresses
+   */
   to: string | Array<string>;
 
+  /**
+   * Optional list of attachments. Supports base64 or data URL; use cid for inline.
+   */
   attachments?: Array<EmailSendParams.Attachment>;
 
+  /**
+   * Optional BCC recipients
+   */
   bcc?: string | Array<string>;
 
+  /**
+   * Optional CC recipients
+   */
   cc?: string | Array<string>;
 
+  /**
+   * Optional display name for the sender
+   */
   from_name?: string;
 
+  /**
+   * Optional Message-ID of the email being replied to
+   */
   in_reply_to?: string;
 
+  /**
+   * If true, the email is a draft
+   */
   is_draft?: boolean;
 
+  /**
+   * Optional list of Message-ID references
+   */
   references?: Array<string>;
 
+  /**
+   * Optional Reply-To addresses
+   */
   reply_to?: string | Array<string>;
 
+  /**
+   * Optional plain-text body of the email
+   */
   text?: string;
 
+  /**
+   * Optional existing thread ID to attach this email to
+   */
   threadId?: string;
 
+  /**
+   * Enable click tracking for this email. Overrides API key and org defaults.
+   */
   track_clicks?: boolean;
 
+  /**
+   * Enable open tracking for this email. Overrides API key and org defaults.
+   */
   track_opens?: boolean;
 }
 
 export namespace EmailSendParams {
+  /**
+   * Attachment input; provide content as base64 or data URL
+   */
   export interface Attachment {
+    /**
+     * Required: base64 string or data URL for the file content
+     */
     content: string;
 
+    /**
+     * Original file name to display
+     */
     file_name: string;
 
+    /**
+     * Content-ID for inline images referenced via cid:
+     */
     cid?: string;
 
+    /**
+     * MIME type when using raw base64 (ignored for data URLs)
+     */
     content_type?: string;
 
+    /**
+     * How the attachment should be presented
+     */
     disposition?: 'attachment' | 'inline';
   }
 }
