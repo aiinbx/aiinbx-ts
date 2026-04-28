@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.460.0 (2026-04-28)
+
+Full Changelog: [v1.459.0...v1.460.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.459.0...v1.460.0)
+
+### Features
+
+* support setting headers via env ([eda4733](https://github.com/aiinbx/aiinbx-ts/commit/eda4733ea5f8bee5d61131bb28575f69d2139b44))
+
+
+### Chores
+
+* **internal:** codegen related update ([881f2cd](https://github.com/aiinbx/aiinbx-ts/commit/881f2cd71a1943e96466e91c02b5535dc80c1f93))
+* **internal:** codegen related update ([982cca2](https://github.com/aiinbx/aiinbx-ts/commit/982cca2644c0bc2c5116872e830dab965d9c356b))
+* **internal:** codegen related update ([2ea2d65](https://github.com/aiinbx/aiinbx-ts/commit/2ea2d65796c794f49c7d8445d47bd61cb917fa66))
+* **internal:** fix MCP server import ordering ([83ec406](https://github.com/aiinbx/aiinbx-ts/commit/83ec406da37199ddb65d8ffa7a5cf1154486a9df))
+* **internal:** more robust bootstrap script ([0af7108](https://github.com/aiinbx/aiinbx-ts/commit/0af7108c8b618951935b9325a8b65ea5ce54f89d))
+* **internal:** show error causes in MCP servers when running in local mode ([270ad47](https://github.com/aiinbx/aiinbx-ts/commit/270ad47ce451f05acc6be3bb00a56cc40c94cf94))
+* **mcp-server:** increase local docs search result count from 5 to 10 ([2527ee6](https://github.com/aiinbx/aiinbx-ts/commit/2527ee673339a5676590477b97780f0a9d8e5d75))
+* restructure docs search code ([f04e918](https://github.com/aiinbx/aiinbx-ts/commit/f04e9184ea6a2e5af199c5d35780a6b2b0b401dc))
+
 ## 1.459.0 (2026-04-03)
 
 Full Changelog: [v1.458.0...v1.459.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.458.0...v1.459.0)
