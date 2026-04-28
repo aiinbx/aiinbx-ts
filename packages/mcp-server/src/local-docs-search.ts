@@ -81,19 +81,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## search\n\n`client.threads.search(conversationState?: 'awaiting_reply' | 'needs_reply' | 'active' | 'stale', createdAfter?: string, createdBefore?: string, hasEmailFromAddress?: string, hasEmailToAddress?: string, hasParticipantEmails?: string[], lastEmailAfter?: string, lastEmailBefore?: string, limit?: number, offset?: number, someEmailHasDirection?: 'INBOUND' | 'OUTBOUND', someEmailHasStatus?: string, sortBy?: 'createdAt' | 'lastEmailAt' | 'subject', sortOrder?: 'asc' | 'desc', staleThresholdDays?: number, subjectContains?: string): { pagination: object; threads: object[]; }`\n\n**post** `/threads/search`\n\nSearch threads with various filtering options optimized for AI agents\n\n### Parameters\n\n- `conversationState?: 'awaiting_reply' | 'needs_reply' | 'active' | 'stale'`\n  Filter threads by conversation state\n\n- `createdAfter?: string`\n  Filter threads created after this date\n\n- `createdBefore?: string`\n  Filter threads created before this date\n\n- `hasEmailFromAddress?: string`\n  Filter threads with emails from this address\n\n- `hasEmailToAddress?: string`\n  Filter threads with emails to this address\n\n- `hasParticipantEmails?: string[]`\n  Filter threads that include all of these email addresses as participants\n\n- `lastEmailAfter?: string`\n  Filter threads with last email after this date\n\n- `lastEmailBefore?: string`\n  Filter threads with last email before this date\n\n- `limit?: number`\n  Number of threads to return (1-100)\n\n- `offset?: number`\n  Number of threads to skip\n\n- `someEmailHasDirection?: 'INBOUND' | 'OUTBOUND'`\n  Filter threads containing emails with this direction\n\n- `someEmailHasStatus?: string`\n  Filter threads containing emails with this status\n\n- `sortBy?: 'createdAt' | 'lastEmailAt' | 'subject'`\n  Field to sort by\n\n- `sortOrder?: 'asc' | 'desc'`\n  Sort order\n\n- `staleThresholdDays?: number`\n  Days to consider a thread stale (used with conversationState=stale)\n\n- `subjectContains?: string`\n  Filter threads where subject contains this text\n\n### Returns\n\n- `{ pagination: { hasMore: boolean; limit: number; offset: number; total: number; }; threads: { id: string; createdAt: string; emailCount: number; lastEmailAt: string; participantEmails: string[]; snippet: string; subject: string; updatedAt: string; }[]; }`\n\n  - `pagination: { hasMore: boolean; limit: number; offset: number; total: number; }`\n  - `threads: { id: string; createdAt: string; emailCount: number; lastEmailAt: string; participantEmails: string[]; snippet: string; subject: string; updatedAt: string; }[]`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst response = await client.threads.search();\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.threads.search',
         example:
-          "curl https://aiinbx.com/api/v1/threads/search \\\n    -H 'Content-Type: application/json' \\\n    -H \"Authorization: Bearer $AI_INBX_API_KEY\" \\\n    -d '{}'",
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.threads.search();\n\nconsole.log(response.pagination);",
       },
       python: {
         method: 'threads.search',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.threads.search()\nprint(response.pagination)',
       },
-      typescript: {
-        method: 'client.threads.search',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.threads.search();\n\nconsole.log(response.pagination);",
+          "curl https://aiinbx.com/api/v1/threads/search \\\n    -H 'Content-Type: application/json' \\\n    -H \"Authorization: Bearer $AI_INBX_API_KEY\" \\\n    -d '{}'",
       },
     },
   },
@@ -111,19 +111,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.threads.retrieve(threadId: string): { id: string; createdAt: string; emails: object[]; subject: string; }`\n\n**get** `/threads/{threadId}`\n\nRetrieve a specific thread with all its emails by thread ID using API key authentication\n\n### Parameters\n\n- `threadId: string`\n  The unique identifier of the thread\n\n### Returns\n\n- `{ id: string; createdAt: string; emails: { id: string; attachments: { id: string; cid: string; contentType: string; createdAt: string; disposition: string; expiresAt: string; fileName: string; signedUrl: string; sizeInBytes: number; }[]; bccAddresses: string[]; ccAddresses: string[]; createdAt: string; direction: 'INBOUND' | 'OUTBOUND'; fromAddress: string; fromName: string; html: string; inReplyToId: string; messageId: string; receivedAt: string; references: string[]; replyToAddresses: string[]; sentAt: string; snippet: string; status: string; strippedHtml: string; strippedText: string; subject: string; text: string; threadId: string; toAddresses: string[]; }[]; subject: string; }`\n\n  - `id: string`\n  - `createdAt: string`\n  - `emails: { id: string; attachments: { id: string; cid: string; contentType: string; createdAt: string; disposition: string; expiresAt: string; fileName: string; signedUrl: string; sizeInBytes: number; }[]; bccAddresses: string[]; ccAddresses: string[]; createdAt: string; direction: 'INBOUND' | 'OUTBOUND'; fromAddress: string; fromName: string; html: string; inReplyToId: string; messageId: string; receivedAt: string; references: string[]; replyToAddresses: string[]; sentAt: string; snippet: string; status: string; strippedHtml: string; strippedText: string; subject: string; text: string; threadId: string; toAddresses: string[]; }[]`\n  - `subject: string`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst thread = await client.threads.retrieve('threadId');\n\nconsole.log(thread);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.threads.retrieve',
         example:
-          'curl https://aiinbx.com/api/v1/threads/$THREAD_ID \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst thread = await client.threads.retrieve('threadId');\n\nconsole.log(thread.id);",
       },
       python: {
         method: 'threads.retrieve',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nthread = client.threads.retrieve(\n    "threadId",\n)\nprint(thread.id)',
       },
-      typescript: {
-        method: 'client.threads.retrieve',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst thread = await client.threads.retrieve('threadId');\n\nconsole.log(thread.id);",
+          'curl https://aiinbx.com/api/v1/threads/$THREAD_ID \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
       },
     },
   },
@@ -153,19 +153,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## forward\n\n`client.threads.forward(threadId: string, to: string | string[], attachments?: { content: string; file_name: string; cid?: string; content_type?: string; disposition?: 'attachment' | 'inline'; }[], bcc?: string | string[], cc?: string | string[], from?: string, from_name?: string, includeAttachments?: boolean, is_draft?: boolean, note?: string, track_clicks?: boolean, track_opens?: boolean): { emailId: string; messageId: string; threadId: string; }`\n\n**post** `/threads/{threadId}/forward`\n\nForward the entire thread as a readable transcript.\n\n### Parameters\n\n- `threadId: string`\n  The ID of the thread to forward\n\n- `to: string | string[]`\n  Recipient email address or list of addresses\n\n- `attachments?: { content: string; file_name: string; cid?: string; content_type?: string; disposition?: 'attachment' | 'inline'; }[]`\n  Optional additional attachments to include alongside any originals (if included).\n\n- `bcc?: string | string[]`\n  Optional BCC recipients\n\n- `cc?: string | string[]`\n  Optional CC recipients\n\n- `from?: string`\n  Optional sender address; auto-resolved if omitted\n\n- `from_name?: string`\n  Optional display name for the sender\n\n- `includeAttachments?: boolean`\n  Include original attachments as real file attachments (inline images embedded when referenced by CID)\n\n- `is_draft?: boolean`\n  If true, the forward is created as a draft\n\n- `note?: string`\n  Optional short context shown above the transcript\n\n- `track_clicks?: boolean`\n  Enable click tracking for this email. Overrides API key and org defaults.\n\n- `track_opens?: boolean`\n  Enable open tracking for this email. Overrides API key and org defaults.\n\n### Returns\n\n- `{ emailId: string; messageId: string; threadId: string; }`\n\n  - `emailId: string`\n  - `messageId: string`\n  - `threadId: string`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst response = await client.threads.forward('threadId', { to: 'dev@stainless.com' });\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.threads.forward',
         example:
-          'curl https://aiinbx.com/api/v1/threads/$THREAD_ID/forward \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY" \\\n    -d \'{\n          "to": "dev@stainless.com"\n        }\'',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.threads.forward('threadId', { to: 'dev@stainless.com' });\n\nconsole.log(response.emailId);",
       },
       python: {
         method: 'threads.forward',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.threads.forward(\n    thread_id="threadId",\n    to="dev@stainless.com",\n)\nprint(response.email_id)',
       },
-      typescript: {
-        method: 'client.threads.forward',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.threads.forward('threadId', { to: 'dev@stainless.com' });\n\nconsole.log(response.emailId);",
+          'curl https://aiinbx.com/api/v1/threads/$THREAD_ID/forward \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY" \\\n    -d \'{\n          "to": "dev@stainless.com"\n        }\'',
       },
     },
   },
@@ -183,19 +183,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.emails.retrieve(emailId: string): { id: string; attachments: object[]; bccAddresses: string[]; ccAddresses: string[]; createdAt: string; direction: 'INBOUND' | 'OUTBOUND'; fromAddress: string; fromName: string; html: string; inReplyToId: string; messageId: string; receivedAt: string; references: string[]; replyToAddresses: string[]; sentAt: string; snippet: string; status: string; strippedHtml: string; strippedText: string; subject: string; text: string; threadId: string; toAddresses: string[]; }`\n\n**get** `/emails/{emailId}`\n\nRetrieve a specific email by its ID using API key authentication\n\n### Parameters\n\n- `emailId: string`\n  The unique identifier of the email\n\n### Returns\n\n- `{ id: string; attachments: { id: string; cid: string; contentType: string; createdAt: string; disposition: string; expiresAt: string; fileName: string; signedUrl: string; sizeInBytes: number; }[]; bccAddresses: string[]; ccAddresses: string[]; createdAt: string; direction: 'INBOUND' | 'OUTBOUND'; fromAddress: string; fromName: string; html: string; inReplyToId: string; messageId: string; receivedAt: string; references: string[]; replyToAddresses: string[]; sentAt: string; snippet: string; status: string; strippedHtml: string; strippedText: string; subject: string; text: string; threadId: string; toAddresses: string[]; }`\n\n  - `id: string`\n  - `attachments: { id: string; cid: string; contentType: string; createdAt: string; disposition: string; expiresAt: string; fileName: string; signedUrl: string; sizeInBytes: number; }[]`\n  - `bccAddresses: string[]`\n  - `ccAddresses: string[]`\n  - `createdAt: string`\n  - `direction: 'INBOUND' | 'OUTBOUND'`\n  - `fromAddress: string`\n  - `fromName: string`\n  - `html: string`\n  - `inReplyToId: string`\n  - `messageId: string`\n  - `receivedAt: string`\n  - `references: string[]`\n  - `replyToAddresses: string[]`\n  - `sentAt: string`\n  - `snippet: string`\n  - `status: string`\n  - `strippedHtml: string`\n  - `strippedText: string`\n  - `subject: string`\n  - `text: string`\n  - `threadId: string`\n  - `toAddresses: string[]`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst email = await client.emails.retrieve('emailId');\n\nconsole.log(email);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.emails.retrieve',
         example:
-          'curl https://aiinbx.com/api/v1/emails/$EMAIL_ID \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst email = await client.emails.retrieve('emailId');\n\nconsole.log(email.id);",
       },
       python: {
         method: 'emails.retrieve',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nemail = client.emails.retrieve(\n    "emailId",\n)\nprint(email.id)',
       },
-      typescript: {
-        method: 'client.emails.retrieve',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst email = await client.emails.retrieve('emailId');\n\nconsole.log(email.id);",
+          'curl https://aiinbx.com/api/v1/emails/$EMAIL_ID \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
       },
     },
   },
@@ -230,19 +230,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## send\n\n`client.emails.send(from: string, html: string, subject: string, to: string | string[], attachments?: { content: string; file_name: string; cid?: string; content_type?: string; disposition?: 'attachment' | 'inline'; }[], bcc?: string | string[], cc?: string | string[], from_name?: string, in_reply_to?: string, is_draft?: boolean, references?: string[], reply_to?: string | string[], text?: string, threadId?: string, track_clicks?: boolean, track_opens?: boolean): { emailId: string; messageId: string; threadId: string; }`\n\n**post** `/emails/send`\n\nSend an email from a verified domain belonging to the organization. Useful for transactional or conversational messages. Returns metadata including identifiers for further queries.\n\n### Parameters\n\n- `from: string`\n  Sender email address (must use a verified domain)\n\n- `html: string`\n  HTML body of the email\n\n- `subject: string`\n  Email subject\n\n- `to: string | string[]`\n  Recipient email address or list of addresses\n\n- `attachments?: { content: string; file_name: string; cid?: string; content_type?: string; disposition?: 'attachment' | 'inline'; }[]`\n  Optional list of attachments. Supports base64 or data URL; use cid for inline.\n\n- `bcc?: string | string[]`\n  Optional BCC recipients\n\n- `cc?: string | string[]`\n  Optional CC recipients\n\n- `from_name?: string`\n  Optional display name for the sender\n\n- `in_reply_to?: string`\n  Optional Message-ID of the email being replied to\n\n- `is_draft?: boolean`\n  If true, the email is a draft\n\n- `references?: string[]`\n  Optional list of Message-ID references\n\n- `reply_to?: string | string[]`\n  Optional Reply-To addresses\n\n- `text?: string`\n  Optional plain-text body of the email\n\n- `threadId?: string`\n  Optional existing thread ID to attach this email to\n\n- `track_clicks?: boolean`\n  Enable click tracking for this email. Overrides API key and org defaults.\n\n- `track_opens?: boolean`\n  Enable open tracking for this email. Overrides API key and org defaults.\n\n### Returns\n\n- `{ emailId: string; messageId: string; threadId: string; }`\n\n  - `emailId: string`\n  - `messageId: string`\n  - `threadId: string`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst response = await client.emails.send({\n  from: 'dev@stainless.com',\n  html: 'html',\n  subject: 'subject',\n  to: 'dev@stainless.com',\n});\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.emails.send',
         example:
-          'curl https://aiinbx.com/api/v1/emails/send \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY" \\\n    -d \'{\n          "from": "dev@stainless.com",\n          "html": "html",\n          "subject": "subject",\n          "to": "dev@stainless.com"\n        }\'',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.emails.send({\n  from: 'dev@stainless.com',\n  html: 'html',\n  subject: 'subject',\n  to: 'dev@stainless.com',\n});\n\nconsole.log(response.emailId);",
       },
       python: {
         method: 'emails.send',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.emails.send(\n    from_="dev@stainless.com",\n    html="html",\n    subject="subject",\n    to="dev@stainless.com",\n)\nprint(response.email_id)',
       },
-      typescript: {
-        method: 'client.emails.send',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.emails.send({\n  from: 'dev@stainless.com',\n  html: 'html',\n  subject: 'subject',\n  to: 'dev@stainless.com',\n});\n\nconsole.log(response.emailId);",
+          'curl https://aiinbx.com/api/v1/emails/send \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY" \\\n    -d \'{\n          "from": "dev@stainless.com",\n          "html": "html",\n          "subject": "subject",\n          "to": "dev@stainless.com"\n        }\'',
       },
     },
   },
@@ -275,19 +275,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## reply\n\n`client.emails.reply(emailId: string, from: string, html: string, attachments?: { content: string; file_name: string; cid?: string; content_type?: string; disposition?: 'attachment' | 'inline'; }[], bcc?: string | string[], cc?: string | string[], from_name?: string, is_draft?: boolean, reply_all?: boolean, subject?: string, text?: string, to?: string | string[], track_clicks?: boolean, track_opens?: boolean): { emailId: string; messageId: string; threadId: string; }`\n\n**post** `/emails/{emailId}/reply`\n\nReply to an existing email. Automatically handles reply headers (In-Reply-To, References) and thread association. The reply will be sent from a verified domain belonging to the organization.\n\n### Parameters\n\n- `emailId: string`\n  The ID of the email being replied to\n\n- `from: string`\n  Sender email address (must use a verified domain)\n\n- `html: string`\n  HTML body of the reply\n\n- `attachments?: { content: string; file_name: string; cid?: string; content_type?: string; disposition?: 'attachment' | 'inline'; }[]`\n  Optional list of attachments to include with this reply (e.g., inline images via cid).\n\n- `bcc?: string | string[]`\n  Optional BCC recipients\n\n- `cc?: string | string[]`\n  Optional CC recipients\n\n- `from_name?: string`\n  Optional display name for the sender\n\n- `is_draft?: boolean`\n  If true, the email is a draft\n\n- `reply_all?: boolean`\n  If true, includes all original recipients (to/cc) in the reply\n\n- `subject?: string`\n  Email subject. If not provided, uses \"Re: \" + original subject\n\n- `text?: string`\n  Optional plain-text body of the reply\n\n- `to?: string | string[]`\n  Override recipient addresses. If not provided, replies to the original sender and any reply-to addresses.\n\n- `track_clicks?: boolean`\n  Enable click tracking for this email. Overrides API key and org defaults.\n\n- `track_opens?: boolean`\n  Enable open tracking for this email. Overrides API key and org defaults.\n\n### Returns\n\n- `{ emailId: string; messageId: string; threadId: string; }`\n\n  - `emailId: string`\n  - `messageId: string`\n  - `threadId: string`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst response = await client.emails.reply('emailId', { from: 'dev@stainless.com', html: 'html' });\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.emails.reply',
         example:
-          'curl https://aiinbx.com/api/v1/emails/$EMAIL_ID/reply \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY" \\\n    -d \'{\n          "from": "dev@stainless.com",\n          "html": "html"\n        }\'',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.emails.reply('emailId', { from: 'dev@stainless.com', html: 'html' });\n\nconsole.log(response.emailId);",
       },
       python: {
         method: 'emails.reply',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.emails.reply(\n    email_id="emailId",\n    from_="dev@stainless.com",\n    html="html",\n)\nprint(response.email_id)',
       },
-      typescript: {
-        method: 'client.emails.reply',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.emails.reply('emailId', { from: 'dev@stainless.com', html: 'html' });\n\nconsole.log(response.emailId);",
+          'curl https://aiinbx.com/api/v1/emails/$EMAIL_ID/reply \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY" \\\n    -d \'{\n          "from": "dev@stainless.com",\n          "html": "html"\n        }\'',
       },
     },
   },
@@ -304,18 +304,18 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## list\n\n`client.domains.list(): { domains: object[]; }`\n\n**get** `/domains`\n\nList all domains belonging to the API key's organization\n\n### Returns\n\n- `{ domains: { id: string; createdAt: string; domain: string; isManagedDefault: boolean; status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED'; updatedAt: string; verifiedAt: string; dnsRecords?: { name: string; type: 'TXT' | 'CNAME' | 'MX'; value: string; isVerified?: boolean; lastCheckedAt?: string; priority?: number; verificationStatus?: 'verified' | 'missing' | 'pending'; }[]; }[]; }`\n\n  - `domains: { id: string; createdAt: string; domain: string; isManagedDefault: boolean; status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED'; updatedAt: string; verifiedAt: string; dnsRecords?: { name: string; type: 'TXT' | 'CNAME' | 'MX'; value: string; isVerified?: boolean; lastCheckedAt?: string; priority?: number; verificationStatus?: 'verified' | 'missing' | 'pending'; }[]; }[]`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst domains = await client.domains.list();\n\nconsole.log(domains);\n```",
     perLanguage: {
-      http: {
-        example: 'curl https://aiinbx.com/api/v1/domains \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
+      typescript: {
+        method: 'client.domains.list',
+        example:
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst domains = await client.domains.list();\n\nconsole.log(domains.domains);",
       },
       python: {
         method: 'domains.list',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\ndomains = client.domains.list()\nprint(domains.domains)',
       },
-      typescript: {
-        method: 'client.domains.list',
-        example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst domains = await client.domains.list();\n\nconsole.log(domains.domains);",
+      http: {
+        example: 'curl https://aiinbx.com/api/v1/domains \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
       },
     },
   },
@@ -333,19 +333,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## create\n\n`client.domains.create(domain: string): { domainId: string; records: object[]; }`\n\n**post** `/domains`\n\nCreate a new domain for the organization and return required DNS records to configure.\n\n### Parameters\n\n- `domain: string`\n\n### Returns\n\n- `{ domainId: string; records: { name: string; type: 'TXT' | 'CNAME' | 'MX'; value: string; priority?: number; }[]; }`\n\n  - `domainId: string`\n  - `records: { name: string; type: 'TXT' | 'CNAME' | 'MX'; value: string; priority?: number; }[]`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst domain = await client.domains.create({ domain: 'sfN2.l.iJR-BU.u9JV9.a.m.o2D-4b-Jd.0Z-kX.L.n.S.f.ukBXb' });\n\nconsole.log(domain);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.domains.create',
         example:
-          'curl https://aiinbx.com/api/v1/domains \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY" \\\n    -d \'{\n          "domain": "sfN2.l.iJR-BU.u9JV9.a.m.o2D-4b-Jd.0Z-kX.L.n.S.f.ukBXb"\n        }\'',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst domain = await client.domains.create({\n  domain: 'sfN2.l.iJR-BU.u9JV9.a.m.o2D-4b-Jd.0Z-kX.L.n.S.f.ukBXb',\n});\n\nconsole.log(domain.domainId);",
       },
       python: {
         method: 'domains.create',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\ndomain = client.domains.create(\n    domain="sfN2.l.iJR-BU.u9JV9.a.m.o2D-4b-Jd.0Z-kX.L.n.S.f.ukBXb",\n)\nprint(domain.domain_id)',
       },
-      typescript: {
-        method: 'client.domains.create',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst domain = await client.domains.create({\n  domain: 'sfN2.l.iJR-BU.u9JV9.a.m.o2D-4b-Jd.0Z-kX.L.n.S.f.ukBXb',\n});\n\nconsole.log(domain.domainId);",
+          'curl https://aiinbx.com/api/v1/domains \\\n    -H \'Content-Type: application/json\' \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY" \\\n    -d \'{\n          "domain": "sfN2.l.iJR-BU.u9JV9.a.m.o2D-4b-Jd.0Z-kX.L.n.S.f.ukBXb"\n        }\'',
       },
     },
   },
@@ -363,19 +363,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## retrieve\n\n`client.domains.retrieve(domainId: string): { id: string; createdAt: string; domain: string; isManagedDefault: boolean; status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED'; updatedAt: string; verifiedAt: string; dnsRecords?: object[]; }`\n\n**get** `/domains/{domainId}`\n\nRetrieve a domain by its ID\n\n### Parameters\n\n- `domainId: string`\n  The unique identifier of the domain\n\n### Returns\n\n- `{ id: string; createdAt: string; domain: string; isManagedDefault: boolean; status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED'; updatedAt: string; verifiedAt: string; dnsRecords?: { name: string; type: 'TXT' | 'CNAME' | 'MX'; value: string; isVerified?: boolean; lastCheckedAt?: string; priority?: number; verificationStatus?: 'verified' | 'missing' | 'pending'; }[]; }`\n\n  - `id: string`\n  - `createdAt: string`\n  - `domain: string`\n  - `isManagedDefault: boolean`\n  - `status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED'`\n  - `updatedAt: string`\n  - `verifiedAt: string`\n  - `dnsRecords?: { name: string; type: 'TXT' | 'CNAME' | 'MX'; value: string; isVerified?: boolean; lastCheckedAt?: string; priority?: number; verificationStatus?: 'verified' | 'missing' | 'pending'; }[]`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst domain = await client.domains.retrieve('domainId');\n\nconsole.log(domain);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.domains.retrieve',
         example:
-          'curl https://aiinbx.com/api/v1/domains/$DOMAIN_ID \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst domain = await client.domains.retrieve('domainId');\n\nconsole.log(domain.id);",
       },
       python: {
         method: 'domains.retrieve',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\ndomain = client.domains.retrieve(\n    "domainId",\n)\nprint(domain.id)',
       },
-      typescript: {
-        method: 'client.domains.retrieve',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst domain = await client.domains.retrieve('domainId');\n\nconsole.log(domain.id);",
+          'curl https://aiinbx.com/api/v1/domains/$DOMAIN_ID \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
       },
     },
   },
@@ -392,19 +392,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## delete\n\n`client.domains.delete(domainId: string): { success: true; }`\n\n**delete** `/domains/{domainId}`\n\nDelete a domain by ID from the organization\n\n### Parameters\n\n- `domainId: string`\n\n### Returns\n\n- `{ success: true; }`\n\n  - `success: true`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst domain = await client.domains.delete('domainId');\n\nconsole.log(domain);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.domains.delete',
         example:
-          'curl https://aiinbx.com/api/v1/domains/$DOMAIN_ID \\\n    -X DELETE \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst domain = await client.domains.delete('domainId');\n\nconsole.log(domain.success);",
       },
       python: {
         method: 'domains.delete',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\ndomain = client.domains.delete(\n    "domainId",\n)\nprint(domain.success)',
       },
-      typescript: {
-        method: 'client.domains.delete',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst domain = await client.domains.delete('domainId');\n\nconsole.log(domain.success);",
+          'curl https://aiinbx.com/api/v1/domains/$DOMAIN_ID \\\n    -X DELETE \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
       },
     },
   },
@@ -423,19 +423,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## verify\n\n`client.domains.verify(domainId: string): { domain: object; verification: object; }`\n\n**post** `/domains/{domainId}/verify`\n\nRun verification checks for the domain and update its stored status and DNS record verification flags.\n\n### Parameters\n\n- `domainId: string`\n\n### Returns\n\n- `{ domain: { id: string; createdAt: string; domain: string; isManagedDefault: boolean; status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED'; updatedAt: string; verifiedAt: string; dnsRecords?: { name: string; type: 'TXT' | 'CNAME' | 'MX'; value: string; isVerified?: boolean; lastCheckedAt?: string; priority?: number; verificationStatus?: 'verified' | 'missing' | 'pending'; }[]; }; verification: { debug: { actualVerificationTokens: string[]; domain: string; verificationTokenMatch: boolean; expectedVerificationToken?: string; }; dkimStatus: 'Pending' | 'Success' | 'Failed' | 'NotStarted' | 'TemporaryFailure'; dns: { dkim: object; dmarc: object; domainVerification: boolean; mailFrom: object; mx: object; spf: boolean; }; mxConflict: { hasConflict: boolean; conflictingRecords?: object[]; message?: string; }; ready: boolean; verification: 'Pending' | 'Success' | 'Failed' | 'NotStarted' | 'TemporaryFailure'; }; }`\n\n  - `domain: { id: string; createdAt: string; domain: string; isManagedDefault: boolean; status: 'VERIFIED' | 'PENDING_VERIFICATION' | 'NOT_REGISTERED'; updatedAt: string; verifiedAt: string; dnsRecords?: { name: string; type: 'TXT' | 'CNAME' | 'MX'; value: string; isVerified?: boolean; lastCheckedAt?: string; priority?: number; verificationStatus?: 'verified' | 'missing' | 'pending'; }[]; }`\n  - `verification: { debug: { actualVerificationTokens: string[]; domain: string; verificationTokenMatch: boolean; expectedVerificationToken?: string; }; dkimStatus: 'Pending' | 'Success' | 'Failed' | 'NotStarted' | 'TemporaryFailure'; dns: { dkim: object; dmarc: { present: boolean; source: 'subdomain' | 'parent' | 'none'; }; domainVerification: boolean; mailFrom: { domain: string; mx: boolean; spf: boolean; }; mx: { expectedPriority: number; found: boolean; records: { exchange: string; priority: number; }[]; }; spf: boolean; }; mxConflict: { hasConflict: boolean; conflictingRecords?: { exchange: string; priority: number; }[]; message?: string; }; ready: boolean; verification: 'Pending' | 'Success' | 'Failed' | 'NotStarted' | 'TemporaryFailure'; }`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst response = await client.domains.verify('domainId');\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.domains.verify',
         example:
-          'curl https://aiinbx.com/api/v1/domains/$DOMAIN_ID/verify \\\n    -X POST \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.domains.verify('domainId');\n\nconsole.log(response.domain);",
       },
       python: {
         method: 'domains.verify',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.domains.verify(\n    "domainId",\n)\nprint(response.domain)',
       },
-      typescript: {
-        method: 'client.domains.verify',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.domains.verify('domainId');\n\nconsole.log(response.domain);",
+          'curl https://aiinbx.com/api/v1/domains/$DOMAIN_ID/verify \\\n    -X POST \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
       },
     },
   },
@@ -448,15 +448,15 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     stainlessPath: '(resource) webhooks > (method) unwrap',
     qualified: 'client.webhooks.unwrap',
     perLanguage: {
-      python: {
-        method: 'webhooks.unwrap',
-        example:
-          'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nclient.webhooks.unwrap()',
-      },
       typescript: {
         method: 'client.webhooks.unwrap',
         example:
           "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nawait client.webhooks.unwrap();",
+      },
+      python: {
+        method: 'webhooks.unwrap',
+        example:
+          'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nclient.webhooks.unwrap()',
       },
     },
   },
@@ -473,19 +473,19 @@ const EMBEDDED_METHODS: MethodEntry[] = [
     markdown:
       "## webhooks_schema\n\n`client.meta.webhooksSchema(): { attempt: number; data: object; event: 'inbound.email.received'; timestamp: number; } | { attempt: number; data: object; event: 'outbound.email.delivered'; timestamp: number; } | { attempt: number; data: object; event: 'outbound.email.bounced'; timestamp: number; } | { attempt: number; data: object; event: 'outbound.email.complained'; timestamp: number; } | { attempt: number; data: object; event: 'outbound.email.rejected'; timestamp: number; } | { attempt: number; data: object; event: 'outbound.email.opened'; timestamp: number; } | { attempt: number; data: object; event: 'outbound.email.clicked'; timestamp: number; }`\n\n**get** `/_meta/webhooks`\n\nInternal endpoint to expose webhook event schemas to SDK generators.\n\n### Returns\n\n- `{ attempt: number; data: { email: { id: string; attachments: object[]; bccAddresses: string[]; ccAddresses: string[]; createdAt: string; direction: 'INBOUND' | 'OUTBOUND'; fromAddress: string; messageId: string; references: string[]; replyToAddresses: string[]; status: string; threadId: string; toAddresses: string[]; fromName?: string; html?: string; inReplyToId?: string; receivedAt?: string; sentAt?: string; snippet?: string; strippedHtml?: string; strippedText?: string; subject?: string; text?: string; }; organization: { id: string; slug: string; }; }; event: 'inbound.email.received'; timestamp: number; } | { attempt: number; data: { deliveredAt: string; messageId: string; recipients: string[]; emailId?: string; processingTimeMs?: number; remoteMtaIp?: string; smtpResponse?: string; }; event: 'outbound.email.delivered'; timestamp: number; } | { attempt: number; data: { bouncedAt: string; bounceType: 'Permanent' | 'Transient' | 'Undetermined'; messageId: string; recipients: { emailAddress: string; action?: string; diagnosticCode?: string; status?: string; }[]; bounceSubType?: string; emailId?: string; }; event: 'outbound.email.bounced'; timestamp: number; } | { attempt: number; data: { complainedAt: string; messageId: string; recipients: string[]; complaintFeedbackType?: string; emailId?: string; feedbackId?: string; userAgent?: string; }; event: 'outbound.email.complained'; timestamp: number; } | { attempt: number; data: { messageId: string; rejectedAt: string; emailId?: string; reason?: string; }; event: 'outbound.email.rejected'; timestamp: number; } | { attempt: number; data: { messageId: string; openedAt: string; emailId?: string; ipAddress?: string; userAgent?: string; }; event: 'outbound.email.opened'; timestamp: number; } | { attempt: number; data: { clickedAt: string; link: string; messageId: string; emailId?: string; ipAddress?: string; linkDomain?: string; userAgent?: string; }; event: 'outbound.email.clicked'; timestamp: number; }`\n\n### Example\n\n```typescript\nimport AIInbx from 'aiinbx';\n\nconst client = new AIInbx();\n\nconst response = await client.meta.webhooksSchema();\n\nconsole.log(response);\n```",
     perLanguage: {
-      http: {
+      typescript: {
+        method: 'client.meta.webhooksSchema',
         example:
-          'curl https://aiinbx.com/api/v1/_meta/webhooks \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
+          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.meta.webhooksSchema();\n\nconsole.log(response);",
       },
       python: {
         method: 'meta.webhooks_schema',
         example:
           'import os\nfrom aiinbx import AIInbx\n\nclient = AIInbx(\n    api_key=os.environ.get("AI_INBX_API_KEY"),  # This is the default and can be omitted\n)\nresponse = client.meta.webhooks_schema()\nprint(response)',
       },
-      typescript: {
-        method: 'client.meta.webhooksSchema',
+      http: {
         example:
-          "import AIInbx from 'aiinbx';\n\nconst client = new AIInbx({\n  apiKey: process.env['AI_INBX_API_KEY'], // This is the default and can be omitted\n});\n\nconst response = await client.meta.webhooksSchema();\n\nconsole.log(response);",
+          'curl https://aiinbx.com/api/v1/_meta/webhooks \\\n    -H "Authorization: Bearer $AI_INBX_API_KEY"',
       },
     },
   },
