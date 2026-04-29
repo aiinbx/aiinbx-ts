@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.460.1 (2026-04-29)
+
+Full Changelog: [v1.460.0...v1.460.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.0...v1.460.1)
+
+### Chores
+
+* **format:** run eslint and prettier separately ([88db3f4](https://github.com/aiinbx/aiinbx-ts/commit/88db3f4ed7fb7dc73df0686124d57ed35c9b02e6))
+
 ## 1.460.0 (2026-04-28)
 
 Full Changelog: [v1.459.0...v1.460.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.459.0...v1.460.0)
