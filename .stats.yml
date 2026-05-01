@@ -1,4 +1,4 @@
 configured_endpoints: 12
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/ai-inbx%2Fai-inbx-a2b3dd91fe1cb2f71a2a55c31d34e850e94f835b6ad27d7621d034045b6548c8.yml
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/ai-inbx/ai-inbx-1e0b715110d84341354c124c7d6b01ae1910d85b97a6ec51c1b5158633405bd9.yml
 openapi_spec_hash: dcd903b9e3f559b1ccfb9c008314f30f
 config_hash: 52c04c0a72bce816db9be2ee001d3b30
