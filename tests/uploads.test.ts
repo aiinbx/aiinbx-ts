@@ -1,7 +1,6 @@
 import fs from 'fs';
 import type { ResponseLike } from 'aiinbx/internal/to-file';
 import { toFile } from 'aiinbx/core/uploads';
-import { File } from 'node:buffer';
 
 class MyClass {
   name: string = 'foo';
