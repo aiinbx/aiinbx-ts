@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.460.1 (2026-05-19)
+
+Full Changelog: [v1.460.0...v1.460.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.0...v1.460.1)
+
+### Bug Fixes
+
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([c7c1604](https://github.com/aiinbx/aiinbx-ts/commit/c7c16043aae17ae20ed9ab81d6cef370f4d55869))
+
+
+### Chores
+
+* avoid formatting file that gets changed during releases ([f3cdece](https://github.com/aiinbx/aiinbx-ts/commit/f3cdececeedf456fb5c0f7fd62d8a4fc48eca495))
+* **format:** run eslint and prettier separately ([88db3f4](https://github.com/aiinbx/aiinbx-ts/commit/88db3f4ed7fb7dc73df0686124d57ed35c9b02e6))
+* redact api-key headers in debug logs ([d0ccc77](https://github.com/aiinbx/aiinbx-ts/commit/d0ccc7701f340f22916b12f39d495de2cf8e0e56))
+* **tests:** remove redundant File import ([2bd6f4c](https://github.com/aiinbx/aiinbx-ts/commit/2bd6f4c54cb75c9edcfb0f7c8ad3fb98e27f1181))
+
 ## 1.460.0 (2026-04-28)
 
 Full Changelog: [v1.459.0...v1.460.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.459.0...v1.460.0)
