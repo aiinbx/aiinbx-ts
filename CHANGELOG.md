@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.460.2 (2026-05-29)
+
+Full Changelog: [v1.460.1...v1.460.2](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.1...v1.460.2)
+
+### Bug Fixes
+
+* **mcp:** use `pure-lockfile` when building mcp server ([1d8e2c5](https://github.com/aiinbx/aiinbx-ts/commit/1d8e2c5d1dc1af29d05b8b63aa20f45f4d04a239))
+
+
+### Chores
+
+* **internal:** codegen related update ([ceb3644](https://github.com/aiinbx/aiinbx-ts/commit/ceb3644e2317955edb43d85ec5999d69ef88e8f9))
+
 ## 1.460.1 (2026-05-19)
 
 Full Changelog: [v1.460.0...v1.460.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.0...v1.460.1)
