@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.460.3 (2026-06-17)
+
+Full Changelog: [v1.460.2...v1.460.3](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.2...v1.460.3)
+
+### Bug Fixes
+
+* **client:** send content-type header for requests with an omitted optional body ([41169c7](https://github.com/aiinbx/aiinbx-ts/commit/41169c7cf2938f070a9f7f959aee4eded56da284))
+
 ## 1.460.2 (2026-05-29)
 
 Full Changelog: [v1.460.1...v1.460.2](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.1...v1.460.2)
