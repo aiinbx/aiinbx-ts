@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.460.4 (2026-07-11)
+
+Full Changelog: [v1.460.3...v1.460.4](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.3...v1.460.4)
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([56c954b](https://github.com/aiinbx/aiinbx-ts/commit/56c954b146e1a0a54e7f09204d238a71f235c37c))
+
+
+### Chores
+
+* **internal:** codegen related update ([2b93560](https://github.com/aiinbx/aiinbx-ts/commit/2b93560dcc1edbc67e46f815838e2e2f4e8ab588))
+
 ## 1.460.3 (2026-06-17)
 
 Full Changelog: [v1.460.2...v1.460.3](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.2...v1.460.3)
