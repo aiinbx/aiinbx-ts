@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.461.0 (2026-07-18)
+
+Full Changelog: [v1.460.4...v1.461.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.4...v1.461.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([a06bd80](https://github.com/aiinbx/aiinbx-ts/commit/a06bd80d31af8f01b602a7a6e339291b687239ae))
+
 ## 1.460.4 (2026-07-11)
 
 Full Changelog: [v1.460.3...v1.460.4](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.3...v1.460.4)
