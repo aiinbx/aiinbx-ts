@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.461.1 (2026-07-31)
+
+Full Changelog: [v1.461.0...v1.461.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.461.0...v1.461.1)
+
+### Bug Fixes
+
+* **stlc:** stop hand-edited CI workflows from blocking seals and builds ([14c5fc0](https://github.com/aiinbx/aiinbx-ts/commit/14c5fc01121979a56bd29e690e5b004afa262beb))
+
+
+### Chores
+
+* **internal:** codegen related update ([db079d5](https://github.com/aiinbx/aiinbx-ts/commit/db079d51c50eed2c105749735f3faf4b349822ff))
+
 ## 1.461.0 (2026-07-18)
 
 Full Changelog: [v1.460.4...v1.461.0](https://github.com/aiinbx/aiinbx-ts/compare/v1.460.4...v1.461.0)
