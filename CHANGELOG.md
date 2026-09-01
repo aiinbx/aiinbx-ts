@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.461.2 (2026-09-01)
+
+Full Changelog: [v1.461.1...v1.461.2](https://github.com/aiinbx/aiinbx-ts/compare/v1.461.1...v1.461.2)
+
+### Documentation
+
+* **mcp:** document code execution modes and the local code runner ([e5e335e](https://github.com/aiinbx/aiinbx-ts/commit/e5e335e7480eaca05e0781a2ef9eb3b4f78da87e))
+
 ## 1.461.1 (2026-07-31)
 
 Full Changelog: [v1.461.0...v1.461.1](https://github.com/aiinbx/aiinbx-ts/compare/v1.461.0...v1.461.1)
