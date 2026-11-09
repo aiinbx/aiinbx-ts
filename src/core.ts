@@ -1,6 +1,6 @@
 import type { Problem } from "./generated/types.js"
 
-const VERSION = "4.5.0"
+const VERSION = "4.5.1"
 /// Worth another try when sending twice cannot act twice; a 429 always is.
 const RETRYABLE_STATUS = new Set([408])
 /// Methods that act the same however often they are sent.
