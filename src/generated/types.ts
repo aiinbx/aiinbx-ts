@@ -332,7 +332,10 @@ export interface EmailReceivedEventData {
   mailbox_id: string | null
   /** The sender. */
   from: string
-  /** The recipients on the envelope. */
+  /**
+   * The addresses in the To header, as written by the sender. The email has `cc`
+   * and `bcc`.
+   */
   to: string[]
   /** The subject line. */
   subject: string
@@ -347,6 +350,15 @@ export interface EmailReceivedEventData {
    * it; read the email by `email_id` instead.
    */
   email?: FullEmail | null
+  /**
+   * The addresses of yours the email arrived at: the receiving server's
+   * recipients on a domain, the mailbox and its aliases the mail is written to
+   * on a connected mailbox. Whatever the headers say, so an address in Cc or Bcc
+   * is here. Route on it. When the same email reaches another address of yours
+   * later, the event is sent again with the same `email_id` and only the new
+   * addresses.
+   */
+  delivered_to: string[]
   /**
    * What kind of mail it is. Gate automated replies on `human`, or an
    * autoresponder and your agent answer each other.
@@ -376,7 +388,10 @@ export interface EmailSentEventData {
   mailbox_id: string | null
   /** The sender. */
   from: string
-  /** The recipients on the envelope. */
+  /**
+   * The addresses in the To header, as written by the sender. The email has `cc`
+   * and `bcc`.
+   */
   to: string[]
   /** The subject line. */
   subject: string
@@ -1570,6 +1585,11 @@ export interface Email {
   status: EmailStatus
   from: EmailAddress
   to: string[]
+  /**
+   * On received mail, every address of yours it arrived at so far, whatever its
+   * To and Cc say. Empty on mail you sent.
+   */
+  delivered_to: string[]
   cc?: string[]
   bcc?: string[]
   reply_to?: string[]
@@ -1613,6 +1633,11 @@ export interface FullEmail {
   status: EmailStatus
   from: EmailAddress
   to: string[]
+  /**
+   * On received mail, every address of yours it arrived at so far, whatever its
+   * To and Cc say. Empty on mail you sent.
+   */
+  delivered_to: string[]
   cc: string[]
   bcc: string[]
   reply_to: string[]
@@ -1678,6 +1703,11 @@ export interface SendEmailResponse {
   status: EmailStatus
   from: EmailAddress
   to: string[]
+  /**
+   * On received mail, every address of yours it arrived at so far, whatever its
+   * To and Cc say. Empty on mail you sent.
+   */
+  delivered_to: string[]
   cc?: string[]
   bcc?: string[]
   reply_to?: string[]
