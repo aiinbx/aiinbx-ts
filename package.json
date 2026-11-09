@@ -1,79 +1,69 @@
 {
   "name": "aiinbx",
-  "version": "1.461.1",
-  "description": "The official TypeScript library for the AI Inbx API",
-  "author": "AI Inbx <>",
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
-  "type": "commonjs",
-  "repository": "github:aiinbx/aiinbx-ts",
-  "license": "Apache-2.0",
-  "packageManager": "yarn@1.22.22",
+  "version": "4.5.0",
+  "description": "Official TypeScript SDK for the AI Inbx API",
+  "homepage": "https://aiinbx.com",
+  "type": "module",
+  "sideEffects": false,
   "files": [
-    "**/*"
+    "dist",
+    "README.md"
   ],
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "./scripts/test",
-    "build": "./scripts/build",
-    "prepublishOnly": "echo 'to publish, run yarn build && (cd dist; yarn publish)' && exit 1",
-    "format": "./scripts/format",
-    "prepare": "if ./scripts/utils/check-is-in-git-install.sh; then ./scripts/build && ./scripts/utils/git-swap.sh; fi",
-    "tsn": "ts-node -r tsconfig-paths/register",
-    "lint": "./scripts/lint",
-    "fix": "./scripts/format"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@arethetypeswrong/cli": "^0.18.0",
-    "@swc/core": "^1.3.102",
-    "@swc/jest": "^0.2.29",
-    "@types/jest": "^29.4.0",
-    "@types/node": "^20.17.6",
-    "@typescript-eslint/eslint-plugin": "8.31.1",
-    "@typescript-eslint/parser": "8.31.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-unused-imports": "^4.1.4",
-    "iconv-lite": "^0.6.3",
-    "jest": "^29.4.0",
-    "prettier": "^3.0.0",
-    "publint": "^0.2.12",
-    "ts-jest": "^29.1.0",
-    "ts-node": "^10.5.0",
-    "tsc-multi": "https://github.com/stainless-api/tsc-multi/releases/download/v1.1.11/tsc-multi.tgz",
-    "tsconfig-paths": "^4.0.0",
-    "tslib": "^2.8.1",
-    "typescript": "5.8.3",
-    "typescript-eslint": "8.31.1"
-  },
-  "overrides": {
-    "minimatch": "^9.0.5"
-  },
-  "pnpm": {
-    "overrides": {
-      "minimatch": "^9.0.5"
-    }
-  },
-  "resolutions": {
-    "minimatch": "^9.0.5"
-  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "aiinbx-source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
     },
-    "./*.mjs": {
-      "default": "./dist/*.mjs"
+    "./webhooks": {
+      "aiinbx-source": "./src/webhooks.ts",
+      "types": "./dist/webhooks.d.ts",
+      "import": "./dist/webhooks.js"
     },
-    "./*.js": {
-      "default": "./dist/*.js"
-    },
-    "./*": {
-      "import": "./dist/*.mjs",
-      "require": "./dist/*.js"
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "bun test",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepublishOnly": "bun run test && bun run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "aiinbx",
+    "email",
+    "email-api",
+    "send-email",
+    "inbound-email",
+    "email-threads",
+    "email-webhooks",
+    "ai-agents",
+    "api",
+    "sdk"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiinbx/aiinbx-ts.git"
+  },
+  "bugs": "https://github.com/aiinbx/aiinbx-ts/issues",
+  "peerDependencies": {
+    "@react-email/render": "*"
+  },
+  "peerDependenciesMeta": {
+    "@react-email/render": {
+      "optional": true
     }
+  },
+  "devDependencies": {
+    "@react-email/render": "^2.1.0",
+    "@types/react": "^19",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "typescript": "^6"
   }
 }

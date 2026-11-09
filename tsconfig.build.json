@@ -1,18 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["dist/src"],
-  "exclude": [],
   "compilerOptions": {
-    "rootDir": "./dist/src",
-    "paths": {
-      "aiinbx/*": ["./dist/src/*"],
-      "aiinbx": ["./dist/src/index.ts"]
-    },
     "noEmit": false,
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "outDir": "dist",
-    "pretty": true,
-    "sourceMap": true
+    "rootDir": "src",
+    "allowImportingTsExtensions": false
   }
 }
