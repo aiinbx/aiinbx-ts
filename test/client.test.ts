@@ -546,8 +546,18 @@ describe("resource paths", () => {
       client.spaces.list({ external_id: "cus_1" }),
       client.spaces.create({ name: "Acme", external_id: "cus_1" }),
       client.spaces.retrieve("space_1"),
-      client.spaces.update("space_1", { name: "Acme Inc", external_id: null }),
+      client.spaces.update("space_1", {
+        name: "Acme Inc",
+        external_id: null,
+        thread_across_addresses: true,
+      }),
       client.spaces.delete("space_1"),
+      client.addresses.list({ address: "anna@agents.example.com" }),
+      client.addresses.assign({
+        address: "anna@agents.example.com",
+        space_id: "space_1",
+      }),
+      client.addresses.remove("anna+orders@agents.example.com"),
       client.apiKeys.list({ limit: 5 }),
       client.apiKeys.create({ name: "Production", scope: "sending" }),
       client.apiKeys.delete("key_1"),
@@ -628,6 +638,11 @@ describe("resource paths", () => {
     expect(calls).toContain("GET /api/v2/spaces/space_1")
     expect(calls).toContain("PATCH /api/v2/spaces/space_1")
     expect(calls).toContain("DELETE /api/v2/spaces/space_1")
+    expect(calls).toContain("GET /api/v2/addresses")
+    expect(calls).toContain("POST /api/v2/addresses")
+    expect(calls).toContain(
+      "DELETE /api/v2/addresses/anna%2Borders%40agents.example.com"
+    )
     expect(calls).toContain("GET /api/v2/api-keys")
     expect(calls).toContain("POST /api/v2/api-keys")
     expect(calls).toContain("DELETE /api/v2/api-keys/key_1")
@@ -663,9 +678,17 @@ describe("resource paths", () => {
       name: "Acme",
       external_id: "cus_1",
     })
+    expect(urls).toContain(
+      "https://api.aiinbx.com/api/v2/addresses?address=anna%40agents.example.com"
+    )
+    expect(bodies.get("POST /api/v2/addresses")).toEqual({
+      address: "anna@agents.example.com",
+      space_id: "space_1",
+    })
     expect(bodies.get("PATCH /api/v2/spaces/space_1")).toEqual({
       name: "Acme Inc",
       external_id: null,
+      thread_across_addresses: true,
     })
     expect(bodies.get("POST /api/v2/webhook-endpoints")).toEqual({
       url: "https://example.com/webhook",
@@ -712,6 +735,6 @@ describe("resource paths", () => {
     ).toEqual({
       grace_seconds: 3_600,
     })
-    expect(calls).toHaveLength(44)
+    expect(calls).toHaveLength(47)
   })
 })

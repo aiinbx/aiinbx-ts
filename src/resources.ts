@@ -29,6 +29,7 @@ import { renderReactEmail } from "./render.js"
 import type { SendEmailParams } from "./types.js"
 
 export {
+  Addresses,
   ApiKeys,
   Attachments,
   Domains,

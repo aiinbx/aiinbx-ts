@@ -3,6 +3,7 @@
 import { APIClient, type BaseClientOptions } from "../core.js"
 import {
   Spaces,
+  Addresses,
   ApiKeys,
   Emails,
   Threads,
@@ -30,6 +31,7 @@ export interface ClientOptions extends BaseClientOptions {
 
 export class AIInbx extends APIClient {
   readonly spaces: Spaces
+  readonly addresses: Addresses
   readonly apiKeys: ApiKeys
   readonly emails: Emails
   readonly threads: Threads
@@ -51,6 +53,7 @@ export class AIInbx extends APIClient {
       "AIInbx-Workspace": options.workspaceId,
     })
     this.spaces = new Spaces(this)
+    this.addresses = new Addresses(this)
     this.apiKeys = new ApiKeys(this)
     this.emails = new Emails(this)
     this.threads = new Threads(this)

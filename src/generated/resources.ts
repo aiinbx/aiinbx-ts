@@ -9,8 +9,10 @@ import {
   Resource,
 } from "../core.js"
 import type {
+  Address,
   ApiKey,
   ApiKeyCreated,
+  AssignAddressRequest,
   ConnectMailboxRequest,
   ConnectMailboxResponse,
   CreateApiKeyRequest,
@@ -27,6 +29,7 @@ import type {
   IdListResponse,
   Invitation,
   InvitationList,
+  ListAddressesQuery,
   ListApiKeysQuery,
   ListDomainsQuery,
   ListEmailsQuery,
@@ -109,13 +112,15 @@ export class Spaces extends Resource {
   /**
    * Create a space. Creates a space — one per customer, typically. Domains,
    * mailboxes, rules and suppressions are put in a space with `space_id` when
-   * they are created, and every email and thread inherits the space of the
-   * domain or mailbox it went through. Anything created without a `space_id`
-   * belongs to the workspace itself and `space_id` reads as null. API keys and
-   * webhook endpoints belong to the workspace. `external_id` is your own id
-   * for the customer: unique per workspace, so a second space for the same
-   * customer is `409 external_id_taken`, and the space can be found by it with
-   * `GET /spaces?external_id=`.
+   * they are created, and single addresses with `POST /addresses`; every email
+   * and thread inherits the space of the address it went through when that
+   * address is assigned to one, else of its domain or mailbox. Anything
+   * created without a `space_id` belongs to the workspace itself and
+   * `space_id` reads as null. API keys and webhook endpoints belong to the
+   * workspace. `external_id` is your own id for the customer: unique per
+   * workspace, so a second space for the same customer is `409
+   * external_id_taken`, and the space can be found by it with `GET
+   * /spaces?external_id=`.
    */
   create(
     body: CreateSpaceRequest,
@@ -130,8 +135,8 @@ export class Spaces extends Resource {
   }
 
   /**
-   * Retrieve a space. Returns one space by id, with its name and the
-   * `external_id` you gave it.
+   * Retrieve a space. Returns one space by id, with its name, the
+   * `external_id` you gave it and its `thread_across_addresses` switch.
    */
   retrieve(spaceId: string, options?: RequestOptions): APIPromise<Space> {
     return this.client.request({
@@ -142,9 +147,9 @@ export class Spaces extends Resource {
   }
 
   /**
-   * Update a space. Changes the space's name or `external_id`; only the fields
-   * given change, and `external_id: null` clears it. Nothing in the space
-   * moves.
+   * Update a space. Changes the space's name, `external_id` or
+   * `thread_across_addresses`; only the fields given change, and `external_id:
+   * null` clears it. Nothing in the space moves.
    */
   update(
     spaceId: string,
@@ -164,13 +169,100 @@ export class Spaces extends Resource {
    * the background. The space immediately stops accepting work and no longer
    * appears in the API; its domains then come off DNS verification and
    * sending, its mailboxes are disconnected, and its emails, threads, rules
-   * and suppressions are removed. A wildcard domain in the space is deleted
-   * with its subdomains, including any filed in other spaces. Admin only.
+   * and suppressions are removed. Addresses assigned to the space are
+   * unassigned; one whose domain lives in another space is in that domain's
+   * space again from its next email on. A wildcard domain in the space is
+   * deleted with its subdomains, including any filed in other spaces, and a
+   * domain deleted with the space takes the assignments of its addresses with
+   * it, whatever space they are in. Admin only.
    */
   delete(spaceId: string, options?: RequestOptions): APIPromise<void> {
     return this.client.request({
       method: "DELETE",
       path: `/spaces/${pathSegment(spaceId)}`,
+      options,
+    })
+  }
+}
+
+/**
+ * Single addresses assigned to a space of their own, whatever space their
+ * domain is in.
+ */
+export class Addresses extends Resource {
+  /**
+   * List addresses. Lists the addresses assigned to a space of their own,
+   * newest first. Filter by `space` for one space's addresses, or by `address`
+   * to find where one address is assigned.
+   *
+   * A listed assignment takes effect while the domain entry it was made on is
+   * the one in service. Moving the domain to another space adds a new entry
+   * for the name; once that entry sends and receives, the address is in the
+   * domain's space again until it is assigned again, and the old assignment
+   * stays listed until the old entry is deleted, which removes it.
+   */
+  list(
+    query: ListAddressesQuery = {},
+    options?: RequestOptions
+  ): PagePromise<Address> {
+    return this.client.paginate({
+      method: "GET",
+      path: "/addresses",
+      query,
+      options,
+    })
+  }
+
+  /**
+   * Assign an address to a space. Assigns one address of a verified domain of
+   * the workspace to a space, whatever space its domain is in: one shared
+   * domain, `anna@agents.com` in one customer's space and `bob@agents.com` in
+   * another's, with no DNS change. The domain still signs and carries the
+   * address's mail; everything else follows the address's space — its mail and
+   * threads, the `space_id` on its events and emails, its send limits,
+   * suppression lists and sender reputation. `space_id: null` assigns it to
+   * the workspace itself.
+   *
+   * The address assigned on its own wins over its domain's space. A
+   * plus-tagged address — `anna+orders@agents.com` — goes where
+   * `anna@agents.com` goes unless it is assigned itself. An address that is
+   * not assigned is in its domain's space, as before.
+   *
+   * Assigning an address that is already assigned moves it. Mail it already
+   * has stays in the space it was in, with that space's suppression lists;
+   * sends from it still queued or scheduled fail with `sender_unknown`, as
+   * they do when a domain moves. Mail already on its way while it moves stays
+   * in the space it was headed to. An agent login already connected to the
+   * address stays on the old space: it keeps reading the mail there and its
+   * sends are refused; connect it again for the new space. An address on no
+   * domain of the workspace fails with `sender_unknown`, one on a domain that
+   * has not verified with `409 domain_unverified`. An assigned address does
+   * not count against the plan; the emails it sends and receives do, as any
+   * email does.
+   */
+  assign(
+    body: AssignAddressRequest,
+    options?: RequestOptions
+  ): APIPromise<Address> {
+    return this.client.request({
+      method: "POST",
+      path: "/addresses",
+      body,
+      options,
+    })
+  }
+
+  /**
+   * Remove an address from its space. Removes the assignment: from its next
+   * email on, the address is where its untagged address is assigned —
+   * `anna@agents.com` for `anna+orders@agents.com` — else in its domain's
+   * space again. Mail it already has stays in the space it was in. An address
+   * that is not assigned is `404 not_found`.
+   */
+  remove(address: string, options?: RequestOptions): APIPromise<void> {
+    return this.client.request({
+      method: "DELETE",
+      path: `/addresses/${pathSegment(address)}`,
       options,
     })
   }
@@ -475,7 +567,9 @@ export class Domains extends Resource {
    * yours — `hi.acme.dev` under `*.acme.dev` — is created as a subdomain of
    * it: no records, verified as soon as the wildcard is, in whatever
    * `space_id` you give it. That is how a platform hands each customer an
-   * address of their own without touching DNS again.
+   * address of their own without touching DNS again. To give customers single
+   * addresses of one shared domain instead, assign each address to its
+   * customer's space with `POST /addresses`.
    *
    * A domain name can be connected in several spaces and workspaces, but
    * sending and receiving are enabled for the one whose DKIM key is published.
@@ -1269,20 +1363,21 @@ export class Workspaces extends Resource {
 
   /**
    * Retrieve the workspace. Returns the workspace the request acts in: its
-   * name, its slug, and the tracking defaults a domain added from now on
-   * starts with.
+   * name, its slug, the tracking defaults a domain added from now on starts
+   * with, and whether mail outside spaces threads across addresses.
    */
   retrieve(options?: RequestOptions): APIPromise<Workspace> {
     return this.client.request({ method: "GET", path: "/workspace", options })
   }
 
   /**
-   * Update the workspace. Renames the workspace or changes its tracking
-   * defaults; only the fields given change. A new name brings a new slug,
-   * which moves the console URLs with it (the provided domain keeps its name),
-   * so a workspace can be renamed once a month — sooner fails with 409
-   * `rename_cooldown`. Tracking defaults apply to domains added from now on;
-   * each existing domain keeps its own. Admin only.
+   * Update the workspace. Renames the workspace, changes its tracking defaults
+   * or switches `thread_across_addresses` for mail outside spaces; only the
+   * fields given change. A new name brings a new slug, which moves the console
+   * URLs with it (the provided domain keeps its name), so a workspace can be
+   * renamed once a month — sooner fails with 409 `rename_cooldown`. Tracking
+   * defaults apply to domains added from now on; each existing domain keeps
+   * its own. Admin only.
    */
   update(
     body: UpdateWorkspaceRequest,

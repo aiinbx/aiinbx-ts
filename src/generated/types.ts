@@ -920,6 +920,15 @@ export interface CreateSpaceRequest {
   name: string
   /** Your own id for the customer the space stands for. Unique per workspace. */
   external_id?: string
+  /**
+   * Whether an email without reply headers that arrives in the space can join
+   * any matching conversation in the space. Off, the default, it joins only a
+   * conversation the address it arrived at already took part in: sent in,
+   * received in, or was the Reply-To of. An email with reply headers always
+   * joins the conversation it answers. Turn it on when several of your addresses
+   * write to the same contacts in the same conversations.
+   */
+  thread_across_addresses?: boolean
 }
 
 export interface UpdateSpaceRequest {
@@ -927,6 +936,25 @@ export interface UpdateSpaceRequest {
   name?: string
   /** Null clears it. */
   external_id?: string | null
+  /**
+   * Whether an email without reply headers that arrives in the space can join
+   * any matching conversation in the space. Off, the default, it joins only a
+   * conversation the address it arrived at already took part in: sent in,
+   * received in, or was the Reply-To of. An email with reply headers always
+   * joins the conversation it answers. Turn it on when several of your addresses
+   * write to the same contacts in the same conversations.
+   */
+  thread_across_addresses?: boolean
+}
+
+export interface AssignAddressRequest {
+  /**
+   * The address, on a verified domain of the workspace. Lowercased; a plus tag
+   * is part of it.
+   */
+  address: string
+  /** The space it goes in. Null assigns it to the workspace itself. */
+  space_id: string | null
 }
 
 export interface CreateApiKeyRequest {
@@ -1511,6 +1539,15 @@ export interface UpdateWorkspaceRequest {
     opens?: boolean
     clicks?: boolean
   }
+  /**
+   * Whether an email without reply headers that arrives outside spaces can join
+   * any matching conversation outside spaces. Off, the default, it joins only a
+   * conversation the address it arrived at already took part in: sent in,
+   * received in, or was the Reply-To of. An email with reply headers always
+   * joins the conversation it answers. Turn it on when several of your addresses
+   * write to the same contacts in the same conversations.
+   */
+  thread_across_addresses?: boolean
 }
 
 export interface UpdateMemberRequest {
@@ -1546,10 +1583,39 @@ export interface Space {
   name: string
   /** Your own id for the customer, if you set one. */
   external_id: string | null
+  /**
+   * Whether an email without reply headers that arrives in the space can join
+   * any matching conversation in the space. Off, the default, it joins only a
+   * conversation the address it arrived at already took part in: sent in,
+   * received in, or was the Reply-To of. An email with reply headers always
+   * joins the conversation it answers. Turn it on when several of your addresses
+   * write to the same contacts in the same conversations.
+   */
+  thread_across_addresses: boolean
   created_at: string
 }
 
 export type SpacePage = Page<Space>
+
+/**
+ * An address assigned to a space of its own, whatever space its domain is in.
+ * Its mail, threads, send limits, suppression lists and sender reputation are
+ * that space's.
+ */
+export interface Address {
+  address: string
+  /**
+   * Which space a resource is in. Null is the workspace itself — what every
+   * resource of a workspace that has no spaces says.
+   */
+  space_id: string | null
+  /** The domain the address is on. It still signs and carries the address's mail. */
+  domain_id: string
+  /** When the address was first assigned. Moving it keeps the date. */
+  created_at: string
+}
+
+export type AddressPage = Page<Address>
 
 export interface ApiKey {
   id: string
@@ -2367,6 +2433,15 @@ export interface Workspace {
   /** What a domain added from now on starts with. */
   tracking: DomainTracking
   /**
+   * Whether an email without reply headers that arrives outside spaces can join
+   * any matching conversation outside spaces. Off, the default, it joins only a
+   * conversation the address it arrived at already took part in: sent in,
+   * received in, or was the Reply-To of. An email with reply headers always
+   * joins the conversation it answers. Turn it on when several of your addresses
+   * write to the same contacts in the same conversations.
+   */
+  thread_across_addresses: boolean
+  /**
    * The inboxes the caller is held to here, when it was connected as an inbox:
    * it reads their mail and sends as them, and nothing else. Null for a
    * connection to the whole workspace, and for an API key.
@@ -2418,6 +2493,26 @@ export interface ListSpacesQuery {
    * it stands for. Exact match; the page holds one space or none.
    */
   external_id?: string
+}
+
+export interface ListAddressesQuery {
+  /** Maximum number of resources to return. */
+  limit?: number
+  /** Opaque cursor from the previous page. */
+  cursor?: string
+  /**
+   * Only resources in this space. Pass `none` for resources that belong to the
+   * workspace itself (`space_id: null`), or omit for the workspace and all its
+   * spaces.
+   */
+  space?: string
+  /**
+   * Only this address. Exact match; the page holds one address or none. A `+` in
+   * it is sent as `%2B`, or the query string reads it as a space. An address
+   * that is not listed is where its untagged address is assigned —
+   * `anna@agents.com` for `anna+orders@agents.com` — else in its domain's space.
+   */
+  address?: string
 }
 
 export interface ListApiKeysQuery {

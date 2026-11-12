@@ -121,7 +121,7 @@ for await (const page of aiinbx.emails.list().iterPages()) {
 
 ## Spaces
 
-A space groups a customer's domains, mailboxes and mail. Pass `space_id` when creating a domain, mailbox, suppression or pacing rule; emails and threads inherit the space of the domain or mailbox they went through. Lists of those take a `space` filter: pass a space ID for that space, `"none"` for only the workspace's own resources (`space_id: null`), or omit it for both the workspace and all spaces. API keys and webhook endpoints belong to the workspace: one key reaches every space, and one endpoint receives every space's events, each stamped with its `space_id`. Spaces are optional — a workspace that never creates one sees `space_id: null` everywhere.
+A space groups a customer's domains, mailboxes, assigned addresses and mail. Pass `space_id` when creating a domain, mailbox, suppression or pacing rule, or when assigning a single address; emails and threads inherit the space of the address they went through when it is assigned to one, else of its domain or mailbox. Lists of those take a `space` filter: pass a space ID for that space, `"none"` for only the workspace's own resources (`space_id: null`), or omit it for both the workspace and all spaces. API keys and webhook endpoints belong to the workspace: one key reaches every space, and one endpoint receives every space's events, each stamped with its `space_id`. Spaces are optional — a workspace that never creates one sees `space_id: null` everywhere.
 
 `external_id` is your own id for the customer — unique per workspace, so a second create for the same customer fails with `409 external_id_taken` — and `spaces.list({ external_id })` finds the space by it.
 
@@ -143,6 +143,22 @@ await aiinbx.emails.send({
   subject: "Welcome",
   text: "Sent from Acme's own subdomain.",
 })
+// Or one address of a verified domain you already have, in the customer's space: no DNS.
+await aiinbx.addresses.assign({
+  address: "anna@agents.example.com",
+  space_id: space.id,
+})
+const assigned = await aiinbx.addresses.list({ space: space.id }).all()
+await aiinbx.addresses.remove("anna@agents.example.com") // back in its domain's space
+```
+
+Use the customer's own domain when they bring one, a subdomain when each customer needs a name of their own or any number of addresses, and an assigned address when each customer — or each agent — has one or a few addresses on a domain you already have.
+
+When several addresses of one space write to the same contacts, `thread_across_addresses` lets mail without reply headers join any thread of the space, not only one its address takes part in. It starts off; real replies always join their thread. The workspace has the same switch for mail outside spaces.
+
+```ts
+await aiinbx.spaces.update(space.id, { thread_across_addresses: true })
+await aiinbx.workspaces.update({ thread_across_addresses: true })
 ```
 
 ## Responses and errors
